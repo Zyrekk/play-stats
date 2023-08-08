@@ -3,25 +3,59 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    /*color: rgb(var(--foreground-rgb));*/
+    /*background: linear-gradient(*/
+    /*    to bottom,*/
+    /*    transparent,*/
+    /*    rgb(var(--background-end-rgb))*/
+    /*  )*/
+    /*  rgb(var(--background-start-rgb));*/
+    background-color: #0E273C;
+}
+
+.link {
+    position: relative;
+}
+
+.link:after {
+    transition: 0.2s ease-in-out;
+    position: absolute;
+    background-color: #78C0E0;
+    border-radius: 10px;
+    content: '';
+    width: 0;
+    left: 0;
+    bottom: -4px;
+    height: 3px;
+}
+
+.link:hover.link:after {
+        width: 100%
+}
+
+
+@keyframes live {
+    0% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.2;
+    }
 }
