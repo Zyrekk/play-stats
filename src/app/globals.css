@@ -110,7 +110,7 @@ body {
     width: 20px;
     height: 20px;
     /*background: rgba(96, 183, 199, 0.1);*/
-    background-image: url("ball.svg");
+    background-image: url("../assets/ball.svg");
     bottom: 0;
 }
 
@@ -132,7 +132,7 @@ body {
     animation-duration: 20s;
     border-top-left-radius: 0 !important;
     background-size: cover;
-    background-image: url("ball.svg");
+    background-image: url("../assets/ball.svg");
 }
 
 .squares li:nth-child(2) {
@@ -143,7 +143,7 @@ body {
     animation-duration: 25s;
     border-top-left-radius: 0 !important;
     background-size: cover;
-    background-image: url("ball.svg");
+    background-image: url("../assets/ball.svg");
 }
 
 .squares li:nth-child(3) {
@@ -154,7 +154,7 @@ body {
     animation-duration: 20s;
     border-top-left-radius: 0 !important;
     background-size: cover;
-    background-image: url("ball.svg");
+    background-image: url("../assets/ball.svg");
 }
 
 .squares li:nth-child(4) {
@@ -165,7 +165,7 @@ body {
     animation-duration: 15s;
     border-top-left-radius: 0 !important;
     background-size: cover;
-    background-image: url("ball.svg");
+    background-image: url("../assets/ball.svg");
 }
 
 .squares li:nth-child(5) {
@@ -176,7 +176,7 @@ body {
     animation-duration: 20s;
     border-top-left-radius: 0 !important;
     background-size: cover;
-    background-image: url("ball.svg");
+    background-image: url("../assets/ball.svg");
 }
 
 .squares li:nth-child(6) {
@@ -187,7 +187,7 @@ body {
     animation-duration: 25s;
     border-top-left-radius: 0 !important;
     background-size: cover;
-    background-image: url("ball.svg");
+    background-image: url("../assets/ball.svg");
 }
 
 .squares li:nth-child(7) {
@@ -198,7 +198,7 @@ body {
     animation-duration: 30s;
     border-top-left-radius: 0 !important;
     background-size: cover;
-    background-image: url("ball.svg");
+    background-image: url("../assets/ball.svg");
 }
 
 .squares li:nth-child(8) {
@@ -209,7 +209,7 @@ body {
     animation-duration: 35s;
     border-top-left-radius: 0 !important;
     background-size: cover;
-    background-image: url("ball.svg");
+    background-image: url("../assets/ball.svg");
 }
 
 .squares li:nth-child(9) {
@@ -220,7 +220,7 @@ body {
     animation-duration: 40s;
     border-top-left-radius: 0 !important;
     background-size: cover;
-    background-image: url("ball.svg");
+    background-image: url("../assets/ball.svg");
 }
 
 .squares li:nth-child(10) {
@@ -231,7 +231,7 @@ body {
     animation-duration: 45s;
     border-top-left-radius: 0 !important;
     background-size: cover;
-    background-image: url("ball.svg");
+    background-image: url("../assets/ball.svg");
 }
 
 /*.squares li {*/

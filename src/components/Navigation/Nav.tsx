@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Hamburger from "@/components/Navigation/Hamburger";
 import MenuIcon from '@mui/icons-material/Menu';
-import logo from "../../app/logosquare.png"
+import logo from "../../assets/logosquare.png"
 
 
 const Nav = () => {
