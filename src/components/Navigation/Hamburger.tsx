@@ -5,7 +5,7 @@ import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import GroupsIcon from "@mui/icons-material/Groups";
 import CloseIcon from '@mui/icons-material/Close';
 import Image from "next/image";
-import logo from "@/app/logosquare.png";
+import logo from "@/assets/logosquare.png";
 
 export interface HamburgerProps {
     isHamburgerOpen: boolean;
@@ -14,7 +14,7 @@ export interface HamburgerProps {
 
 const Hamburger = ({isHamburgerOpen, setIsHamburgerOpen}: HamburgerProps) => {
     return (
-        <div className={`transition-all  ease-in-out duration-300 bg-[#1B507CCC] backdrop-blur fixed w-full top-0 h-full opacity-1 flex lg:hidden flex-col items-center ${isHamburgerOpen?'right-0':'right-[-100%]'}`}>
+        <div className={`transition-all z-50  ease-in-out duration-300 bg-[#1B507CCC] backdrop-blur fixed w-full top-0 h-full opacity-1 flex lg:hidden flex-col items-center ${isHamburgerOpen?'right-0':'right-[-100%]'}`}>
 
             <div className="flex flex-row justify-center items-center mt-6">
                 <div className="flex flex-row w-[80px] h-[80px] justify-center items-center">
