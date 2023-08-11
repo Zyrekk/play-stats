@@ -22,7 +22,7 @@ const LeagueItem = ({
         if (index % 2 === 0) {
             return (
                 <div className={`w-full last:text-black text-white flex justify-center items-center flex-col pb-[50px] pt-[50px] lg:pt-0 lg:pb-0 lg:flex-row`} style={{backgroundColor:data.bgColor}}>
-                    <div className="ronaldoHome w-[300px] lg:w-[400px]">
+                    <div className="ronaldoHome w-[300px] lg:w-[400px] py-[40px]">
                         <Image
                             src={data.image}
                             alt={"ronaldo image"}
@@ -45,7 +45,7 @@ const LeagueItem = ({
         } else {
             return (
                 <div className={`w-full flex items-center justify-center flex-col pb-[50px] lg:pb-0 lg:flex-row-reverse`} style={{backgroundColor:data.bgColor}}>
-                    <div className="ronaldoHome w-[300px] lg:w-[400px]">
+                    <div className="ronaldoHome w-[300px] lg:w-[400px] py-[40px]">
                         <Image
                             src={data.image}
                             alt={"ronaldo image"}
