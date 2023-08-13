@@ -1,5 +1,5 @@
 "use client"
-import React, {useLayoutEffect, useState} from 'react';
+import React, {useState} from 'react';
 import HomeIcon from '@mui/icons-material/Home';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import GroupsIcon from '@mui/icons-material/Groups';
@@ -16,19 +16,18 @@ const Nav = () => {
 
     return (
         <div className="w-full">
-            <div className="bg-[#0000005A] flex justify-between flex-row py-[20px]">
+            <div className="bg-black flex justify-between flex-row py-[20px]">
                 <Link href="/" className="flex flex-row justify-center items-center">
                     <div className="w-[90px] h-[90px] ml-[20px] lg:w-[110px] lg:h-[110px]">
                         <Image
                             src={logo}
                             alt={'employee image'}
-                            width={200}
-                            height={200}
+                            layout="responsive"
                         />
                     </div>
                     <h1 className="hidden lg:block italic font-bold text-[42px] leading-[122.5%]  text-white">Play Stats</h1>
                 </Link>
-                <ul className="italic hidden lg:visible font-bold justify-center items-center lg:flex flex-row gap-8 lg:mr-[70px] text-[24px] text-white">
+                <ul className="italic hidden lg:visible font-bold justify-center items-center lg:flex flex-row gap-8 lg:mr-[70px] text-[18px] text-white">
                     <li>
                         <Link href="/" className="link flex flex-row items-center justify-center gap-2">
                             <HomeIcon sx={{fontSize: 28}}/>
@@ -36,7 +35,7 @@ const Nav = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/" className="link flex flex-row items-center justify-center gap-2">
+                        <Link href="/leagues" className="link flex flex-row items-center justify-center gap-2">
                             <EmojiEventsIcon sx={{fontSize: 28}}/>
                             <span>Leagues</span>
                         </Link>
