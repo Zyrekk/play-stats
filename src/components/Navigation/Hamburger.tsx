@@ -27,7 +27,7 @@ const Hamburger = ({isHamburgerOpen, setIsHamburgerOpen}: HamburgerProps) => {
                 </div>
                 <h1 className=" italic font-bold text-[32px] leading-[122.5%]  text-white">Play Stats</h1>
             </div>
-            <ul className="cursor-pointer italic font-bold items-center flex flex-col gap-8 text-[24px] text-white mt-10">
+            <ul className="cursor-pointer italic font-bold items-center flex flex-col gap-8 text-[20px] text-white mt-10">
                 <li onClick={()=>{setIsHamburgerOpen(false)}}>
                     <Link href="/" className="link flex flex-row items-center justify-center gap-2">
                         <HomeIcon sx={{fontSize: 28}}/>
@@ -35,7 +35,7 @@ const Hamburger = ({isHamburgerOpen, setIsHamburgerOpen}: HamburgerProps) => {
                     </Link>
                 </li>
                 <li onClick={()=>{setIsHamburgerOpen(false)}}>
-                    <Link href="/" className="link flex flex-row items-center justify-center gap-2">
+                    <Link href="/leagues" className="link flex flex-row items-center justify-center gap-2">
                         <EmojiEventsIcon sx={{fontSize: 28}}/>
                         <span>Leagues</span>
                     </Link>
