@@ -35,9 +35,9 @@ const Hamburger = ({isHamburgerOpen, setIsHamburgerOpen}: HamburgerProps) => {
                     </Link>
                 </li>
                 <li onClick={()=>{setIsHamburgerOpen(false)}}>
-                    <Link href="/leagues" className="link flex flex-row items-center justify-center gap-2">
+                    <Link href="/competitions" className="link flex flex-row items-center justify-center gap-2">
                         <EmojiEventsIcon sx={{fontSize: 28}}/>
-                        <span>Leagues</span>
+                        <span>Competitions</span>
                     </Link>
                 </li>
                 <li onClick={()=>{setIsHamburgerOpen(false)}}>

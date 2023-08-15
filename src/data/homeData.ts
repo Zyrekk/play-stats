@@ -1,7 +1,7 @@
 import cl from '../assets/CL.jpg'
 import pl from '../assets/PL.jpg'
 import es from '../assets/ES.png'
-import {LeagueItemProps} from "@/components/Pages/HomePage/HomeLeagueItem";
+import {LeagueItemProps} from "@/components/HomePage/HomeLeagueItem";
 
 export const leagueList:LeagueItemProps[]=[
     {
