@@ -24,19 +24,16 @@ const Footer = () => {
                 <ul className="italic font-bold justify-center items-center gap-8 sm:gap-14 text-[16px] flex flex-row mt-[40px]">
                     <li>
                         <Link href="/" className="link flex flex-row items-center justify-center gap-2">
-
                             <span>Home</span>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/leagues" className="link flex flex-row items-center justify-center gap-2">
-
-                            <span>Leagues</span>
+                        <Link href="/competitions" className="link flex flex-row items-center justify-center gap-2">
+                            <span>Competitions</span>
                         </Link>
                     </li>
                     <li>
                         <Link href="/" className="link flex flex-row items-center justify-center gap-2">
-
                             <span>Clubs</span>
                         </Link>
                     </li>
