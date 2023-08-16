@@ -9,17 +9,20 @@ export const leagueList:LeagueItemProps[]=[
         text:'Thrilling Champions League results!',
         buttonText:'Check out more!',
         bgColor:'#14144A',
+        link:'/CL'
     },
     {
         image:pl,
         text:'World\'s Mightiest Football League!',
         buttonText:'Check out more!',
         bgColor:'#ee2b65',
+        link:'/PL'
     },
     {
         image:es,
         text:'Fight till the Final Whistle in La Liga!',
         buttonText:'Check out more!',
         bgColor:'#FFFFFF',
+        link:'/PL'
     }
 ]

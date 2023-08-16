@@ -22,12 +22,19 @@ interface SingleCompetitionRowProps{
 }
 
 const SingleCompetitionRow = ({data}:{data:SingleCompetitionRowProps}) => {
+    const form=data.form.split(',');
+    const renderForm=form.map((item,index)=>{
+        return <div key={index} className={`w-[25px] h-[25px] rounded-full flex-row flex items-center 
+        justify-center ${item==='W'?'bg-green-500':item==='D'?'bg-gray-400':'bg-red-500'}`}>
+            <p className="text-[12px] text-white font-semibold">{item}</p>
+        </div>
+    })
     return (
-        <tr className="font-semibold">
+        <tr>
             <td scope="row" className="px-4 py-4 text-center">
                 {data.position}
             </td>
-            <td className="px-6 py-4 flex flex-row gap-2">
+            <td className="px-6 py-4 font-semibold flex flex-row gap-2">
                 {data.team.crest ?
                     <Image
                         src={data.team.crest}
@@ -59,8 +66,13 @@ const SingleCompetitionRow = ({data}:{data:SingleCompetitionRowProps}) => {
             <td scope="col" className="px-4 py-4 text-center">
                 {data.goalDifference}
             </td>
-            <td scope="col" className="px-4 py-4 text-center">
+            <td scope="col" className="px-4 py-4 text-center font-semibold">
                 {data.points}
+            </td>
+            <td scope="col" className="px-4 py-4 text-center">
+                <div className="flex flex-row gap-1">
+                    {renderForm}
+                </div>
             </td>
         </tr>
     );

@@ -62,7 +62,7 @@ const SingleCompetition = ({code}: competitionProps) => {
                             <th scope="col" className="px-6 py-3">
                                 Club
                             </th>
-                            <th scope="col" className="px-4 py-3 text-center" title="Played matches">
+                            <th scope="col" className="px-4 py-3 text-center">
                                 Played
                             </th>
                             <th scope="col" className="px-4 py-3 text-center">
@@ -74,17 +74,20 @@ const SingleCompetition = ({code}: competitionProps) => {
                             <th scope="col" className="px-4 py-3 text-center">
                                 Lost
                             </th>
-                            <th scope="col" className="px-4 py-3 text-center">
+                            <th scope="col" className="px-4 py-3 text-center" title="Goals For">
                                 GF
                             </th>
-                            <th scope="col" className="px-4 py-3 text-center">
+                            <th scope="col" className="px-4 py-3 text-center" title="Goals Against">
                                 GA
                             </th>
-                            <th scope="col" className="px-4 py-3 text-center">
+                            <th scope="col" className="px-4 py-3 text-center" title="Goals Difference">
                                 GD
                             </th>
                             <th scope="col" className="px-4 py-3 text-center">
                                 Points
+                            </th>
+                            <th scope="col" className="px-4 py-3 text-center">
+                                Form
                             </th>
                         </tr>
                         </thead>
