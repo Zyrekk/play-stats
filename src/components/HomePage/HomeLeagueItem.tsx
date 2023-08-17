@@ -1,12 +1,14 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import Link from "next/link";
 
 export interface LeagueItemProps {
     text: string;
     buttonText: string;
     image: StaticImageData;
     bgColor:string;
+    link:string
 }
 
 const HomeLeagueItem = ({
@@ -30,12 +32,12 @@ const HomeLeagueItem = ({
                     {data.text}
                 </p>
             </div>
-            <button className={`slideFromLeft mt-[30px] lg:mt-0 ease-in-out duration-300 border-[1px] px-[20px]
+            <Link href={`/competitions${data.link}`} className={`slideFromLeft mt-[30px] lg:mt-0 ease-in-out duration-300 border-[1px] px-[20px]
                         py-[10px] rounded-full flex justify-center items-center
                         flex-row gap-[10px] text-[14px] xl:text-[18px] ${[1,2].includes(index)?' border-black hover:bg-black hover:text-[#FFFFFF]':'border-white hover:bg-white hover:text-[#000000]'} `}>
                 <span className="min-w-[120px] xl:min-w-[150px]">{data.buttonText}</span>
                 <NavigateNextIcon sx={{fontSize: 28}} />
-            </button>
+            </Link>
         </div>
     );
 };
