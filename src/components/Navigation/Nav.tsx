@@ -41,7 +41,7 @@ const Nav = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link href="/" className="link flex flex-row items-center justify-center gap-2">
+                        <Link href="/clubs" className="link flex flex-row items-center justify-center gap-2">
                             <GroupsIcon sx={{fontSize: 35}}/>
                             <span>Clubs</span>
                         </Link>

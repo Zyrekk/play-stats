@@ -5,6 +5,7 @@ interface pageProps {
 }
 
 const Page = ({params}: pageProps) => {
+
     return (
         <div className="bg-black w-full flex items-center justify-center">
             <SingleCompetition code={params.code}/>

@@ -38,7 +38,7 @@ const Filter = ({setSeason,season}:FilterProps) => {
                 <button onClick={()=>{
                     setIsClicked((prevState)=>!prevState)
                 }} className="flex flex-row gap-4 items-center justify-center">
-                    <p className="text-sm">{list.find((item)=>item.value===season).label}</p>
+                    <p className="text-sm">{list.find((item)=>item.value===season)?.label}</p>
                     <KeyboardArrowDownIcon/>
                 </button>
                 {
