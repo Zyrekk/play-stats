@@ -38,7 +38,7 @@ const SingleCompetition = ({code}: competitionProps) => {
                         <caption className="p-5 text-3xl font-semibold text-center"
                                  style={{backgroundColor: tableInfo ? tableInfo.bgColor : '#5C5C5C'}}>
                             <div className="flex w-full flex-col">
-                                <div className="flex w-full items-center justify-center pt-6 flex-row gap-4">
+                                <div className="flex w-full items-center justify-center pt-6 flex-col mb-8 lg:mb-0 lg:flex-row gap-4">
                                     {leagueInfo.competition.emblem ?
                                         <div className="bg-white p-2 rounded-lg">
                                             <Image
@@ -56,38 +56,45 @@ const SingleCompetition = ({code}: competitionProps) => {
                         </caption>
                         <thead className="text-xs text-black bg-white">
                         <tr>
-                            <th scope="col" className="px-4 py-3 text-center">
-                                Position
+                            <th scope="col" className="pl-4  lg:px-4 py-3 text-center">
+                                <p className="hidden md:block">
+                                    Position
+                                </p>
                             </th>
-                            <th scope="col" className="px-6 py-3">
+                            <th scope="col" className="md:px-6 pr-3 md:pr-0 py-3 ">
                                 Club
                             </th>
-                            <th scope="col" className="px-4 py-3 text-center">
-                                Played
+                            <th scope="col" className="px-1 lg:px-4 py-3 text-center ">
+                                <p className="hidden md:block">Played</p>
+                                <p className="block md:hidden">Pl</p>
                             </th>
-                            <th scope="col" className="px-4 py-3 text-center">
-                                Won
+                            <th scope="col" className="px-1 lg:px-4 py-3 text-center">
+                                <p className="hidden md:block">Won</p>
+                                <p className="block md:hidden">W</p>
                             </th>
-                            <th scope="col" className="px-4 py-3 text-center">
-                                Drawn
+                            <th scope="col" className="px-1 lg:px-4 py-3 text-center ">
+                                <p className="hidden md:block">Drawn</p>
+                                <p className="block md:hidden">D</p>
                             </th>
-                            <th scope="col" className="px-4 py-3 text-center">
-                                Lost
+                            <th scope="col" className="px-1 lg:px-4 py-3 text-center ">
+                                <p className="hidden md:block">Lost</p>
+                                <p className="block md:hidden">L</p>
                             </th>
-                            <th scope="col" className="px-4 py-3 text-center" title="Goals For">
-                                GF
+                            <th scope="col" className="px-4 py-3 text-center hidden md:table-cell " title="Goals For">
+                                <p>GF</p>
                             </th>
-                            <th scope="col" className="px-4 py-3 text-center" title="Goals Against">
-                                GA
+                            <th scope="col" className="py-3 px-4 text-center hidden md:table-cell" title="Goals Against">
+                                <p>GA</p>
                             </th>
-                            <th scope="col" className="px-4 py-3 text-center" title="Goals Difference">
+                            <th scope="col" className="px-1 lg:px-4 py-3 text-center" title="Goals Difference">
                                 GD
                             </th>
-                            <th scope="col" className="px-4 py-3 text-center">
-                                Points
+                            <th scope="col" className="px-1 md:px-4 py-3 text-center">
+                                <p className="hidden md:block">Points</p>
+                                <p className="block md:hidden">Pts</p>
                             </th>
                             <th scope="col" className="px-4 py-3 text-center">
-                                Form
+                                <p className="block">Form</p>
                             </th>
                         </tr>
                         </thead>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from "next/image";
 
-interface SingleCompetitionRowProps{
+interface SingleCompetitionRowProps {
     "position": number,
     "team": {
         "id": number,
@@ -12,7 +12,7 @@ interface SingleCompetitionRowProps{
     },
     "playedGames": number,
     "form": string,
-    "won":number,
+    "won": number,
     "draw": number,
     "lost": number,
     "points": number,
@@ -21,20 +21,26 @@ interface SingleCompetitionRowProps{
     "goalDifference": number,
 }
 
-const SingleCompetitionRow = ({data}:{data:SingleCompetitionRowProps}) => {
-    const form=data.form.split(',');
-    const renderForm=form.map((item,index)=>{
-        return <div key={index} className={`w-[25px] h-[25px] rounded-full flex-row flex items-center 
-        justify-center ${item==='W'?'bg-green-500':item==='D'?'bg-gray-400':'bg-red-500'}`}>
-            <p className="text-[12px] text-white font-semibold">{item}</p>
+const SingleCompetitionRow = ({data}: { data: SingleCompetitionRowProps }) => {
+    const form = data.form.split(',');
+    const renderFormDesktop = form.map((item, index) => {
+        return <div key={index} className={`w-[16px] h-[16px] md:w-[25px] md:h-[25px] rounded-full flex-row flex items-center 
+        justify-center ${item === 'W' ? 'bg-green-500' : item === 'D' ? 'bg-gray-400' : 'bg-red-500'}`}>
+            <p className="text-[8px] md:text-[12px] text-white font-semibold">{item}</p>
+        </div>
+    })
+    const renderFormMobile = form.slice(0,3).map((item, index) => {
+        return <div key={index} className={`w-[16px] h-[16px] md:w-[25px] md:h-[25px] rounded-full flex-row flex items-center 
+        justify-center ${item === 'W' ? 'bg-green-500' : item === 'D' ? 'bg-gray-400' : 'bg-red-500'}`}>
+            <p className="text-[8px] md:text-[12px] text-white font-semibold">{item}</p>
         </div>
     })
     return (
         <tr>
-            <td scope="row" className="px-4 py-4 text-center">
+            <td scope="row" className="pl-4 md:pl-0 md:px-4 py-4 text-center">
                 {data.position}
             </td>
-            <td className="px-6 py-4 font-semibold flex flex-row gap-2">
+            <td className="md:px-6 pr-2 md:pr-0 py-4 font-semibold flex flex-row gap-2">
                 {data.team.crest ?
                     <Image
                         src={data.team.crest}
@@ -42,36 +48,40 @@ const SingleCompetitionRow = ({data}:{data:SingleCompetitionRowProps}) => {
                         width={20}
                         height={20}
                     />
-                    :'logo'}
-                {data.team.name}
+                    : 'logo'}
+                <p className="hidden md:table-cell">{data.team.name}</p>
+                <p className="md:hidden">{data.team.tla}</p>
             </td>
-            <td scope="col" className="px-4 py-4 text-center">
+            <td scope="col" className="px-1 md:px-4 py-3 text-center">
                 {data.playedGames}
             </td>
-            <td scope="col" className="px-4 py-4 text-center">
+            <td scope="col" className="px-1 md:px-4 py-3 text-center">
                 {data.won}
             </td>
-            <td scope="col" className="px-4 py-4 text-center">
+            <td scope="col" className="px-1 md:px-4 py-3 text-center">
                 {data.draw}
             </td>
-            <td scope="col" className="px-4 py-4 text-center">
+            <td scope="col" className="px-1 md:px-4 py-3 text-center">
                 {data.lost}
             </td>
-            <td scope="col" className="px-4 py-4 text-center">
+            <td scope="col" className="px-1 md:px-4 py-3 hidden md:table-cell text-center">
                 {data.goalsFor}
             </td>
-            <td scope="col" className="px-4 py-4 text-center">
+            <td scope="col" className="px-1 md:px-4 py-3 hidden md:table-cell text-center">
                 {data.goalsAgainst}
             </td>
-            <td scope="col" className="px-4 py-4 text-center">
+            <td scope="col" className="px-1 md:px-4 py-3 text-center">
                 {data.goalDifference}
             </td>
-            <td scope="col" className="px-4 py-4 text-center font-semibold">
+            <td scope="col" className="px-1 md:px-4 py-3 text-center font-semibold">
                 {data.points}
             </td>
-            <td scope="col" className="px-4 py-4 text-center">
-                <div className="flex flex-row gap-1">
-                    {renderForm}
+            <td scope="col" className="px-4 py-3 text-center">
+                <div className="hidden md:flex flex-row justify-center items-center gap-1">
+                    {renderFormDesktop}
+                </div>
+                <div className="flex md:hidden flex-row justify-center items-center gap-1">
+                    {renderFormMobile}
                 </div>
             </td>
         </tr>
