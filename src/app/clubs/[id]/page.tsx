@@ -1,4 +1,5 @@
 import React from 'react';
+import PickedClub from "@/components/ClubsPage/PickedClub";
 
 interface pageProps {
     params: {id: string}
@@ -6,8 +7,8 @@ interface pageProps {
 
 const Page = ({params}: pageProps) => {
     return (
-        <div>
-            {params.id}
+        <div className="bg-black w-full flex items-center justify-center">
+            <PickedClub id={params.id}/>
         </div>
     );
 };

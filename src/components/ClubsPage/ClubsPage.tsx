@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import SearchClub from "@/components/ClubsPage/SearchClub";
 import axios from "axios";
-import SingleClub from './SingleClub';
+import SingleClubTile from './SingleClubTile';
 import {AnimatePresence} from "framer-motion";
 import {useAutoAnimate} from "@formkit/auto-animate/react";
 
@@ -27,7 +27,7 @@ const ClubsPage = () => {
                 });
         }
     }, [competitionCode]);
-    const renderClubs = () => clubs.filter((club:any)=> club.name.toLowerCase().includes(clubName.toLowerCase())).map((club: any,index:number) => <SingleClub key={index} club={club}/>)
+    const renderClubs = () => clubs.filter((club:any)=> club.name.toLowerCase().includes(clubName.toLowerCase())).map((club: any,index:number) => <SingleClubTile key={index} club={club}/>)
     return (
         <div
             className="text-black min-h-[60vh]  w-full justify-start gap-4 flex flex-col  bg-black  items-center  px-[16px] text-[32px] py-16">
