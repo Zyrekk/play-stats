@@ -7,7 +7,7 @@ interface pageProps {
 
 const Page = ({params}: pageProps) => {
     return (
-        <div className="bg-black w-full flex items-center justify-center">
+        <div className="bg-[#0D1A30] w-full flex items-center justify-center">
             <PickedClub id={params.id}/>
         </div>
     );

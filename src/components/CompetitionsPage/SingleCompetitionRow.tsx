@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from "next/image";
+import Link from "next/link";
 
 interface SingleCompetitionRowProps {
     "position": number,
@@ -49,8 +50,14 @@ const SingleCompetitionRow = ({data}: { data: SingleCompetitionRowProps }) => {
                         height={20}
                     />
                     : 'logo'}
-                <p className="hidden md:table-cell">{data.team.name}</p>
-                <p className="md:hidden">{data.team.tla}</p>
+                <Link href={`/clubs/${data.team.id}`} className="hidden md:table-cell">
+                    <p className="hidden md:table-cell">{data.team.name}</p>
+                </Link>
+                <Link href={`/clubs/${data.team.id}`} className="md:hidden">
+                    <p className="md:hidden">{data.team.tla}</p>
+                </Link>
+                {/*<p className="hidden md:table-cell">{data.team.name}</p>*/}
+                {/*<p className="md:hidden">{data.team.tla}</p>*/}
             </td>
             <td scope="col" className="px-1 md:px-4 py-3 text-center">
                 {data.playedGames}

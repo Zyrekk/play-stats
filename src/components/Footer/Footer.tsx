@@ -10,7 +10,7 @@ import EmailIcon from '@mui/icons-material/Email';
 
 const Footer = () => {
     return (
-        <div className="w-full bg-black flex items-center flex-col py-[60px] px-[32px] sm:px-[60px] text-white italic">
+        <div className="w-full bg-[#040910] flex items-center flex-col py-[60px] px-[32px] sm:px-[60px] text-white italic">
                 <div className="flex flex-col sm:flex-row justify-center items-center">
                     <div className="w-[70px]">
                         <Image

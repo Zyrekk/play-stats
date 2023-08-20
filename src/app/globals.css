@@ -25,7 +25,7 @@ body {
     /*  )*/
     /*  rgb(var(--background-start-rgb));*/
     /*background-color: #143856;*/
-background-color: white;
+background-color: #122340;
     /*background-color: #0E273C;*/
 }
 
@@ -90,7 +90,7 @@ background-color: white;
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: black;
+    background: #122340;
 }
 
 /* Handle */

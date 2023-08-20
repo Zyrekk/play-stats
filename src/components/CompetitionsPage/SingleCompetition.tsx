@@ -31,7 +31,7 @@ const SingleCompetition = ({code}: SingleCompetitionProps) => {
     }, [season]);
     const tableInfo = competitionsInfo.competitions.find((competition) => competition.code === code)
     return (
-        <div className="min-h-screen pt-16 w-full flex justify-center">
+        <div className="min-h-screen py-16 w-full flex justify-center">
             {leagueInfo ?
                 <div className="relative overflow-x-auto shadow-md rounded-xl">
                     <table className="w-full text-sm text-left text-white cursor-default">

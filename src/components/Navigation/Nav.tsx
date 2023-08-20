@@ -16,7 +16,7 @@ const Nav = () => {
 
     return (
         <div className="w-full">
-            <div className="bg-black flex justify-between flex-row py-[20px]">
+            <div className="bg-[#040910] flex justify-between flex-row py-[20px]">
                 <Link href="/" className="flex flex-row justify-center items-center">
                     <div className="w-[90px] h-[90px] ml-[20px] lg:w-[110px] lg:h-[110px]">
                         <Image

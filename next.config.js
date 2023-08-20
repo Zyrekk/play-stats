@@ -22,6 +22,12 @@ module.exports = {
                 port: '',
                 pathname: '/*',
             },
+            {
+                protocol: 'https',
+                hostname: 'flagsapi.com',
+                port: '',
+                pathname: '/*',
+            },
         ],
     },
 };

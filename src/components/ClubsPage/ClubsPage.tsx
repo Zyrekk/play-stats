@@ -30,7 +30,7 @@ const ClubsPage = () => {
     const renderClubs = () => clubs.filter((club:any)=> club.name.toLowerCase().includes(clubName.toLowerCase())).map((club: any,index:number) => <SingleClubTile key={index} club={club}/>)
     return (
         <div
-            className="text-black min-h-[60vh]  w-full justify-start gap-4 flex flex-col  bg-black  items-center  px-[16px] text-[32px] py-16">
+            className="text-black min-h-[60vh]  w-full justify-start gap-4 flex flex-col  bg-[#122340]  items-center  px-[16px] text-[32px] py-16">
             <h2 className="font-bold text-white text-4xl mb-4 text-center">
                 Search for your club
             </h2>
