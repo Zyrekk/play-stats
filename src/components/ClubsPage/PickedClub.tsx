@@ -8,9 +8,12 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PersonIcon from '@mui/icons-material/Person';
 import FunctionsIcon from '@mui/icons-material/Functions';
+import PrevNextMatch from "@/components/ClubsPage/PrevNextMatch";
+
 interface PickedClubProps {
     id: string
 }
+
 const PickedClub = ({id}: PickedClubProps) => {
     const [team, setTeam] = React.useState<any>(null);
     const url = `teams/${id}`; // Replace with your API endpoint
@@ -58,20 +61,20 @@ const PickedClub = ({id}: PickedClubProps) => {
                                         : 'logo'}
                                     <p className="text-[14px]">{team.area.name && team.area.name}</p>
                                 </div>
-                                    {team &&
-                                        <div className="md:hidden flex flex-row items-center justify-center gap-2">
-                                            <div className="rounded-full w-fit bg-white px-1 py-1">
-                                                <Image
-                                                    className=""
-                                                    src={team.runningCompetitions[0].emblem}
-                                                    alt={'team logo'}
-                                                    width={40}
-                                                    height={40}
-                                                />
-                                            </div>
-                                            <p className='text-[14px]'>{team.runningCompetitions[0].name}</p>
+                                {team &&
+                                    <div className="md:hidden flex flex-row items-center justify-center gap-2">
+                                        <div className="rounded-full w-fit bg-white px-1 py-1">
+                                            <Image
+                                                className=""
+                                                src={team.runningCompetitions[0].emblem}
+                                                alt={'team logo'}
+                                                width={40}
+                                                height={40}
+                                            />
                                         </div>
-                                    }
+                                        <p className='text-[14px]'>{team.runningCompetitions[0].name}</p>
+                                    </div>
+                                }
                             </div>
                         </div>
                         <div className="flex flex-col md:flex-row md:flex-wrap gap-2 md:gap-8 max-w-[507px]">
@@ -108,12 +111,11 @@ const PickedClub = ({id}: PickedClubProps) => {
                                     <FunctionsIcon/>
                                     <p className="text-[12px]">Age average</p>
                                 </div>
-                                <p className="border-[1px] text-center border-white py-2 px-6">{(team.squad.reduce((acc: number, player: any) =>
-                                {
+                                <p className="border-[1px] text-center border-white py-2 px-6">{(team.squad.reduce((acc: number, player: any) => {
                                     const today = new Date();
                                     const birthDate = new Date(player.dateOfBirth);
                                     const age = today.getFullYear() - birthDate.getFullYear();
-                                    return acc+age
+                                    return acc + age
                                 }, 0) / team.squad.length).toFixed(1)}</p>
                             </div>
                         </div>
@@ -122,7 +124,7 @@ const PickedClub = ({id}: PickedClubProps) => {
                                 <div className="rounded-full bg-white px-2 py-2">
                                     <Image
                                         className=""
-                                        src={team.runningCompetitions[0].emblem}
+                                        src={team.runningCompetitions[team.runningCompetitions.length - 1].emblem}
                                         alt={'team logo'}
                                         width={50}
                                         height={50}
@@ -132,7 +134,10 @@ const PickedClub = ({id}: PickedClubProps) => {
                         </div>
                     </div>
                 }
-                {team && <PickedClubPlayers squad={team.squad}/>}
+                <div className="flex flex-row gap-5">
+                    {team && <PickedClubPlayers squad={team.squad}/>}
+                    {team && <PrevNextMatch id={team.id} competition={team.runningCompetitions[team.runningCompetitions.length - 1].code}/>}
+                </div>
             </div>
         </div>
     );

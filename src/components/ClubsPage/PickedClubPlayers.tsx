@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, {useState} from 'react';
 import Loading from "@/components/Loading/Loading";
 import {code, flag} from "country-emoji"
 import Image from "next/image";
@@ -10,11 +10,23 @@ const PickedClubPlayers = ({squad}: any) => {
         const today = new Date();
         const birthDate = new Date(player.dateOfBirth);
         const age = today.getFullYear() - birthDate.getFullYear();
-        const nationality=player.nationality==='England'?'GB':code(player.nationality)
+
+        const nationality=()=>{
+            switch (player.nationality) {
+                case 'England':
+                    return "GB"
+                case 'Bosnia-Herzegovina':
+                    return "BA"
+                default:
+                    return code(player.nationality)
+            }
+        }
+
+        // const nationality=player.nationality==='England'?'GB':code(player.nationality)
         return (
-            <tr className={`text-white ${index % 2 == 0 ? "bg-[#0C1B31]" : "bg-[#081221]"}`}>
+            <tr key={index} className={`text-white ${index % 2 == 0 ? "bg-[#0C1B31]" : "bg-[#081221]"}`}>
                 <td scope="col" className="pl-4  lg:px-4 py-3 text-center">
-                    {player.nationality && <img src={`https://flagsapi.com/${nationality}/flat/16.png`} alt="flag image"/>}
+                    {player.nationality && <img src={`https://flagsapi.com/${nationality()}/flat/16.png`} alt="flag image"/>}
                 </td>
                 <td scope="col" className="md:px-6 pr-3 md:pr-0 py-3 ">
                     {player.name}
@@ -37,9 +49,9 @@ const PickedClubPlayers = ({squad}: any) => {
                     <table className="text-sm text-left text-white cursor-default">
                         <thead className="text-xs bg-[#040910]">
                         <tr>
-                            <th scope="col" className="pl-4  lg:px-4 py-3 text-center">
+                            <th scope="col" className="pl-4  lg:px-4 py-3 text-left">
                                 <p>
-                                    Nat
+                                    Nationality
                                 </p>
                             </th>
                             <th scope="col" className="md:px-6 pr-3 md:pr-0 py-3 ">
