@@ -23,12 +23,12 @@ const CompetitionsPage = () => {
             });
     }, []);
     return (
-        <div className="text-black min-h-[60vh]  w-full flex flex-col justify-center items-center px-[16px] text-[32px] py-16">
+        <div className="text-white bg-[#122340] min-h-[60vh]  w-full flex flex-col justify-center items-center px-[16px] text-[32px] py-16">
             <div className="flex flex-col">
                 <h2 className="text-center font-bold mb-[50px]">
                         Select a league to see more stats
                 </h2>
-                <div className="w-full h-[2px] bg-black mb-[50px] box-border px-[30px]"/>
+                <div className="w-full h-[2px] bg-white mb-[50px] box-border px-[30px]"/>
             </div>
             <div className="w-max flex flex-col justify-center items-center lg:items-start gap-6">
                 {competitions ?

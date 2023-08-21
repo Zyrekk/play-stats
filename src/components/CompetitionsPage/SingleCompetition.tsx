@@ -7,12 +7,12 @@ import SingleCompetitionRow from "@/components/CompetitionsPage/SingleCompetitio
 import Filter from "@/components/CompetitionsPage/Filter";
 import Image from "next/image";
 
-interface competitionProps {
+interface SingleCompetitionProps {
     code: string
 }
 
 
-const SingleCompetition = ({code}: competitionProps) => {
+const SingleCompetition = ({code}: SingleCompetitionProps) => {
     const [leagueInfo, setLeagueInfo] = useState<any>(null)
     const [season,setSeason] = useState<string>('2023')
     const url = `/competitions/${code}/standings?season=${season}`; // Replace with your API endpoint
@@ -31,7 +31,7 @@ const SingleCompetition = ({code}: competitionProps) => {
     }, [season]);
     const tableInfo = competitionsInfo.competitions.find((competition) => competition.code === code)
     return (
-        <div className="min-h-screen pt-16 w-full flex justify-center">
+        <div className="min-h-screen py-16 w-full flex justify-center">
             {leagueInfo ?
                 <div className="relative overflow-x-auto shadow-md rounded-xl">
                     <table className="w-full text-sm text-left text-white cursor-default">

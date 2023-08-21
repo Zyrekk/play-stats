@@ -25,7 +25,7 @@ body {
     /*  )*/
     /*  rgb(var(--background-start-rgb));*/
     /*background-color: #143856;*/
-background-color: white;
+background-color: #122340;
     /*background-color: #0E273C;*/
 }
 
@@ -72,7 +72,41 @@ background-color: white;
     100%{
         transform: translateX(0);
     }
+}
 
+@keyframes opacity {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #122340;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.op{
+    animation: opacity;
+    animation-duration: .6s;
 }
 
 .home{

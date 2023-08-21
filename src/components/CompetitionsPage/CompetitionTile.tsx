@@ -6,7 +6,7 @@ import Link from "next/link";
 const CompetitionTile = ({competition}:any) => {
     const url=`/competitions/${competition.code}`
     return (
-        <Link href={url} className="ease-in-out duration-200 hover:translate-x-6 flex w-full flex-row items-center text-black py-2 rounded-xl px-5 justify-between border-[2px] border-black ">
+        <Link href={url} className=" bg-white ease-in-out duration-200 hover:translate-x-6 flex w-full flex-row items-center text-black py-2 rounded-xl px-5 justify-between ">
             <div className="flex flex-row gap-3 items-center">
                 <div className="max-w-[36px] min-h-[40px] lg:max-w-[60px] flex justify-center items-center">
                     {competition.emblem ?
