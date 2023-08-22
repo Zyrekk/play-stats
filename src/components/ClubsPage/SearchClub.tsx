@@ -40,7 +40,7 @@ const SearchClub = ({setCompetitionCode, setClubName, clubName}: SearchClubProps
                         setCompetitionCode(competition.code);
                         setCompetition(competition);
                     }}
-                    className="w-full flex flex-row max-w-[350px]  items-center justify-between py-2 px-4 rounded-full bg-white text-[16px]"
+                    className="w-full flex flex-row max-w-[450px]  items-center justify-between py-2 px-4 rounded-full bg-white text-[16px]"
                     key={competition.id}>
                     {competition.emblem ?
                         <Image
@@ -58,13 +58,13 @@ const SearchClub = ({setCompetitionCode, setClubName, clubName}: SearchClubProps
     return (
         <div className="flex items-center  text-black flex-col">
             <div className="flex w-full flex-col ">
-                <div className="w-full max-w-[350px]">
+                <div className="w-full max-w-[450px]">
                     <label htmlFor="small" className="mb-2 text-sm font-medium text-white">Competition</label>
                     <div
                         ref={parent}
                         onClick={() => setIsOptionsOpen((prevState) => !prevState)}
-                        className="relative w-full max-w-[350px] flex items-center justify-between flex-row h-12 px-4 rounded-full bg-white text-[16px]">
-                        <div className="flex justify-between items-center w-full cursor-pointer">
+                        className="relative lg:w-[450px] w-full max-w-[450px] flex items-center justify-between flex-row h-12 px-4 rounded-full bg-white text-[16px]">
+                        <div className="flex justify-between items-center lg:w-full cursor-pointer">
 
                             {competition === null ?
                                 <p>Select Competition</p>
@@ -86,21 +86,21 @@ const SearchClub = ({setCompetitionCode, setClubName, clubName}: SearchClubProps
                         </div>
                         {isOptionsOpen &&
                             <div
-                                className="absolute max-h-[170px] flex flex-col gap-4 rounded-lg overflow-y-scroll overflow-x-hidden top-[140%] pb-6 left-0 w-full z-10 shadow-lg bg-[#122340] text-black text-[16px]">
+                                className="absolute max-h-[170px] flex flex-col gap-4 rounded-lg overflow-y-scroll overflow-x-hidden top-[100%] pt-4 pb-6 left-0 w-full z-10 shadow-lg bg-[#122340] text-black text-[16px]">
                                 {
                                     competitions && renderOptions()
                                 }
                             </div>}
                     </div>
                 </div>
-                <div>
+                <div className="flex flex-col mt-10">
                     <label htmlFor="small" className="mb-2 text-sm font-medium text-white">Club name</label>
                     <input
                         value={clubName}
                         onChange={(e) => setClubName(e.target.value)}
                         type="text"
                         placeholder="Club name"
-                        className="w-full max-w-[350px] h-12 px-4 rounded-full bg-white text-[16px]"
+                        className="w-full max-w-[450px] h-12 px-4 rounded-full bg-white text-[16px]"
                     />
                 </div>
             </div>

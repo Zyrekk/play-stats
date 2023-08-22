@@ -26,7 +26,7 @@ const PrevNextMatch = ({id,competition}:{id:string,competition:string}) => {
     const isWin=(match:any)=>{
         if(match.homeTeam.id === id){
             if(match.score.fullTime.home===null){
-                return <p className="bg-gray-700 text-center py-4">-</p>
+                return <p className="bg-gray-700 text-center py-4">Timed</p>
             }
             if(match.score.fullTime.home > match.score.fullTime.away){
                 return <p className="bg-green-500 text-center py-4">Win</p>
@@ -40,7 +40,7 @@ const PrevNextMatch = ({id,competition}:{id:string,competition:string}) => {
         }
         else if(match.awayTeam.id === id){
             if(match.score.fullTime.home===null){
-                return <p className="bg-gray-700 text-center py-4">-</p>
+                return <p className="bg-gray-700 text-center py-4">Timed</p>
             }
             if(match.score.fullTime.home < match.score.fullTime.away){
                 return <p className="bg-green-500 text-center py-4">Win</p>
@@ -61,7 +61,7 @@ const PrevNextMatch = ({id,competition}:{id:string,competition:string}) => {
                 <div className="flex flex-row items-center justify-center px-6 py-6 bg-[#081221]">
                     <div className="flex flex-col items-center justify-center">
                         <Image
-                            className=""
+                            className="max-w-[50px] max-h-[50px]"
                             src={match.homeTeam.crest}
                             alt={'team logo'}
                             width={50}
@@ -73,7 +73,7 @@ const PrevNextMatch = ({id,competition}:{id:string,competition:string}) => {
                     <div className="px-6">VS</div>
                     <div className="flex flex-col items-center justify-center">
                         <Image
-                            className=""
+                            className="max-w-[50px] max-h-[50px]"
                             src={match.awayTeam.crest}
                             alt={'team logo'}
                             width={50}
@@ -99,15 +99,6 @@ const PrevNextMatch = ({id,competition}:{id:string,competition:string}) => {
                 {finishedMatches &&renderMatchTile('previous',finishedMatches[finishedMatches.length-1])}
                 {timedMatches&& renderMatchTile('next',timedMatches[0])}
             </div>
-            {/*{*/}
-            {/*    finishedMatches && <div>{finishedMatches[0].homeTeam.name} vs {finishedMatches[0].awayTeam.name}</div>*/}
-            {/*}*/}
-            {/*{*/}
-            {/*    finishedMatches && <div>{finishedMatches[finishedMatches.length-1].homeTeam.name} vs {finishedMatches[finishedMatches.length-1].awayTeam.name}</div>*/}
-            {/*}*/}
-            {/*{*/}
-            {/*    timedMatches && <div>{timedMatches[0].homeTeam.name} vs {timedMatches[0].awayTeam.name}</div>*/}
-            {/*}*/}
         </div>
     );
 };
