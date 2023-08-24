@@ -9,6 +9,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PersonIcon from '@mui/icons-material/Person';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import PrevNextMatch from "@/components/ClubsPage/PrevNextMatch";
+import Link from "next/link";
 
 interface PickedClubProps {
     id: string
@@ -31,13 +32,13 @@ const PickedClub = ({id}: PickedClubProps) => {
             });
     }, []);
     return (
-        <div className="text-white w-full flex justify-center min-h-[60vh] my-16">
+        <div className="text-white w-full flex justify-center min-h-[60vh] my-16 mx-[32px] lg:mx-0">
             <div className="flex flex-col bg-[#122340] items-center shadow-2xl rounded-xl">
                 {team &&
                     <div className="flex w-full items-start py-6 justify-between gap-12 px-6 flex-row flex-wrap">
                         <div className="flex flex-row flex-wrap gap-6">
                             {team.crest ?
-                                <div className=" bg-[#0D1A30] rounded-full px-5 py-5 flex items-center justify-center ">
+                                <div className=" bg-[#040910] border-[1px] border-white rounded-full px-5 py-5 flex items-center justify-center ">
                                     <Image
                                         className=""
                                         src={team.crest}
@@ -83,35 +84,35 @@ const PickedClub = ({id}: PickedClubProps) => {
                                     <PersonIcon/>
                                     <p className="text-[12px]">Manager</p>
                                 </div>
-                                <p className="border-[1px] text-center border-white py-2 px-6">{team.coach.name}</p>
+                                <p className="border-[1px] text-center border-white py-2 px-6 bg-[#040910] rounded-lg">{team.coach.name}</p>
                             </div>
                             <div className="flex flex-col gap-2">
                                 <div className="flex flex-row gap-1 items-center justify-start">
                                     <StadiumIcon/>
                                     <p className="text-[12px]">Stadium</p>
                                 </div>
-                                <p className="border-[1px] text-center border-white py-2 px-6">{team.venue}</p>
+                                <p className="border-[1px] text-center border-white py-2 px-6 bg-[#040910] rounded-lg">{team.venue}</p>
                             </div>
                             <div className="flex flex-col gap-2">
                                 <div className="flex flex-row gap-1 items-center justify-start">
                                     <CalendarMonthIcon/>
                                     <p className="text-[12px]">Founded</p>
                                 </div>
-                                <p className="border-[1px] text-center border-white py-2 px-6">{team.founded}</p>
+                                <p className="border-[1px] text-center border-white py-2 px-6 bg-[#040910] rounded-lg">{team.founded}</p>
                             </div>
                             <div className="flex flex-col gap-2">
                                 <div className="flex flex-row gap-1 items-center justify-start">
                                     <GroupsIcon/>
                                     <p className="text-[12px]">Number of players</p>
                                 </div>
-                                <p className="border-[1px] text-center border-white py-2 px-6">{team.squad.length}</p>
+                                <p className="border-[1px] text-center border-white py-2 px-6 bg-[#040910] rounded-lg">{team.squad.length}</p>
                             </div>
                             <div className="flex flex-col gap-2">
                                 <div className="flex flex-row gap-1 items-center justify-start">
                                     <FunctionsIcon/>
                                     <p className="text-[12px]">Age average</p>
                                 </div>
-                                <p className="border-[1px] text-center border-white py-2 px-6">{(team.squad.reduce((acc: number, player: any) => {
+                                <p className="border-[1px] text-center border-white py-2 px-6 bg-[#040910] rounded-lg">{(team.squad.reduce((acc: number, player: any) => {
                                     const today = new Date();
                                     const birthDate = new Date(player.dateOfBirth);
                                     const age = today.getFullYear() - birthDate.getFullYear();
@@ -119,7 +120,7 @@ const PickedClub = ({id}: PickedClubProps) => {
                                 }, 0) / team.squad.length).toFixed(1)}</p>
                             </div>
                         </div>
-                        <div className=" hidden md:block">
+                        <Link href={`/competitions/${team.runningCompetitions[team.runningCompetitions.length - 1].code}`} className=" hidden md:block">
                             {team ?
                                 <div className="rounded-full bg-white px-2 py-2">
                                     <Image
@@ -131,10 +132,10 @@ const PickedClub = ({id}: PickedClubProps) => {
                                     />
                                 </div>
                                 : 'logo'}
-                        </div>
+                        </Link>
                     </div>
                 }
-                <div className="flex flex-row gap-5">
+                <div className="flex flex-col items-end lg:flex-row gap-5">
                     {team && <PickedClubPlayers squad={team.squad}/>}
                     {team && <PrevNextMatch id={team.id} competition={team.runningCompetitions[team.runningCompetitions.length - 1].code}/>}
                 </div>
