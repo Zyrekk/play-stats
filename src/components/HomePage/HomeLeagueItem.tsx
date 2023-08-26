@@ -11,7 +11,7 @@ export interface LeagueItemProps {
     link:string
 }
 
-const HomeLeagueItem = ({
+export const HomeLeagueItem = ({
     index,
     data,
 }: {
@@ -41,5 +41,3 @@ const HomeLeagueItem = ({
         </div>
     );
 };
-
-export default HomeLeagueItem;

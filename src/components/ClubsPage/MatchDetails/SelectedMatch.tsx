@@ -1,5 +1,9 @@
-import React from "react";
+"use client";
+import React, {useState} from "react";
 import Image from "next/image";
+import StatsView from "@/components/ClubsPage/MatchDetails/StatsView";
+import LineupsView from "@/components/ClubsPage/MatchDetails/LineupsView";
+import Link from "next/link";
 
 interface RootObject {
     area: Area;
@@ -113,7 +117,7 @@ interface Lineup2 {
     shirtNumber: number;
 }
 
-interface HomeTeam {
+export interface HomeTeam {
     id: number;
     name: string;
     shortName: string;
@@ -144,7 +148,7 @@ interface Statistics {
     red_cards: number;
 }
 
-interface Lineup {
+export interface Lineup {
     id: number;
     name: string;
     position: string | null;
@@ -753,11 +757,24 @@ const match: RootObject = {
 
 const SelectedMatch = () => {
     const date = new Date(match.utcDate);
+    const [selectedView, setSelectedView] = useState<string>("stats");
     const getDate = () => {
         const year = date.getFullYear();
         const month = (date.getMonth() + 1).toString().padStart(2, "0");
         const day = date.getDate().toString().padStart(2, "0");
         return `${year}-${month}-${day}`;
+    };
+
+    const renderView = () => {
+        switch (selectedView) {
+            case "stats":
+                return <StatsView awayTeam={match.awayTeam} homeTeam={match.homeTeam}/>
+            case "lineups":
+                return <LineupsView homeLineup={match.homeTeam.lineup} awayLineup={match.awayTeam.lineup}
+                                    awayBench={match.awayTeam.bench} homeBench={match.homeTeam.bench}/>
+            default:
+                return <div/>
+        }
     };
     return (
         <div className="text-white min-h-[60vh] w-full flex flex-col items-center mt-12">
@@ -772,7 +789,8 @@ const SelectedMatch = () => {
             </div>
             <div className="mt-5">
                 <div className="ease-in-out duration-300 flex flex-row items-start justify-center px-6 py-6">
-                    <div className="flex flex-col w-full  max-w-[100px] items-center justify-center">
+                    <Link href={`/clubs/${match.homeTeam.id}`}
+                          className="flex flex-col w-full  max-w-[100px] items-center justify-center">
                         <Image
                             className="max-w-[80px] max-h-[80px]"
                             src={match.homeTeam.crest}
@@ -785,7 +803,7 @@ const SelectedMatch = () => {
                                 ? match.homeTeam.shortName
                                 : match.homeTeam.name}
                         </p>
-                    </div>
+                    </Link>
                     <div className="px-12 flex flex-col items-center mt-[20px] justify-center">
                         <div className="flex flex-row gap-4 items-center justify-center">
                             {match.score.fullTime.home !== null ? (
@@ -813,7 +831,8 @@ const SelectedMatch = () => {
                             {match.venue}
                         </p>
                     </div>
-                    <div className="flex flex-col  w-full max-w-[100px] items-center justify-center">
+                    <Link href={`/clubs/${match.awayTeam.id}`}
+                          className="flex flex-col  w-full max-w-[100px] items-center justify-center">
                         <Image
                             className="max-w-[80px] max-h-[80px]"
                             src={match.awayTeam.crest}
@@ -826,304 +845,29 @@ const SelectedMatch = () => {
                                 ? match.awayTeam.shortName
                                 : match.awayTeam.name}
                         </p>
-                    </div>
+                    </Link>
                 </div>
             </div>
-            <div className="flex flex-col gap-2 items-center border-[1px] py-6 rounded-lg border-white justify-center">
-                <p className="text-[18px] w-full font-semibold px-6 py-6">
-                    Statistics
-                </p>
-                <div className="flex flex-col  gap-4">
-                    <div className="flex flex-row w-full justify-between gap-4 px-6">
-                        <div className="flex flex-row gap-2 items-center justify-center">
-                            <p className="min-w-[50px] text-right">
-                                {match.homeTeam.statistics.ball_possession}
-                            </p>
-                            <div className="w-[100px] relative h-[15px] bg-[#040910] rounded-md">
-                                <div
-                                    style={{
-                                        width: match.homeTeam.statistics
-                                            .ball_possession,
-                                        height: "100%",
-                                    }}
-                                    className="bg-red-500 rounded-md absolute top-0 left-0"
-                                />
-                            </div>
-                        </div>
-                        <div>Possesion</div>
-                        <div className="flex flex-row gap-2 items-center justify-center">
-                            <div className="w-[100px] relative h-[15px] rounded-md bg-[#040910]">
-                                <div
-                                    style={{
-                                        width: match.awayTeam.statistics
-                                            .ball_possession,
-                                        height: "100%",
-                                    }}
-                                    className="bg-green-500 rounded-md absolute top-0 left-0"
-                                />
-                            </div>
-                            <p className="min-w-[50px] text-left">
-                                {match.awayTeam.statistics.ball_possession}
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="flex flex-row w-full justify-between gap-4 px-6">
-                        <div className="flex flex-row gap-2 items-center justify-center">
-                            <p className="min-w-[50px] text-right">
-                                {match.homeTeam.statistics.shots}
-                            </p>
-                            <div className="w-[100px] relative h-[15px] bg-[#040910] rounded-md">
-                                <div
-                                    style={{
-                                        width:
-                                            match.homeTeam.statistics.shots * 2,
-                                        height: "100%",
-                                    }}
-                                    className="bg-red-500 rounded-md absolute top-0 left-0"
-                                />
-                            </div>
-                        </div>
-                        <div>Shots</div>
-                        <div className="flex flex-row gap-2 items-center justify-center">
-                            <div className="w-[100px] relative h-[15px] rounded-md bg-[#040910]">
-                                <div
-                                    style={{
-                                        width:
-                                            match.awayTeam.statistics.shots * 2,
-                                        height: "100%",
-                                    }}
-                                    className="bg-green-500 rounded-md absolute top-0 left-0"
-                                />
-                            </div>
-                            <p className="min-w-[50px] text-left">
-                                {match.awayTeam.statistics.shots}
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="flex flex-row w-full justify-between gap-4 px-6">
-                        <div className="flex flex-row gap-2 items-center justify-center">
-                            <p className="min-w-[50px] text-right">
-                                {match.homeTeam.statistics.shots_on_goal}
-                            </p>
-                            <div className="w-[100px] relative h-[15px] bg-[#040910] rounded-md">
-                                <div
-                                    style={{
-                                        width:
-                                            match.homeTeam.statistics
-                                                .shots_on_goal * 2,
-                                        height: "100%",
-                                    }}
-                                    className="bg-red-500 rounded-md absolute top-0 left-0"
-                                />
-                            </div>
-                        </div>
-                        <div>Shots on target</div>
-                        <div className="flex flex-row gap-2 items-center justify-center">
-                            <div className="w-[100px] relative h-[15px] rounded-md bg-[#040910]">
-                                <div
-                                    style={{
-                                        width:
-                                            match.awayTeam.statistics
-                                                .shots_on_goal * 2,
-                                        height: "100%",
-                                    }}
-                                    className="bg-green-500 rounded-md absolute top-0 left-0"
-                                />
-                            </div>
-                            <p className="min-w-[50px] text-left">
-                                {match.awayTeam.statistics.shots_on_goal}
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="flex flex-row w-full justify-between gap-4 px-6">
-                        <div className="flex flex-row gap-2 items-center justify-center">
-                            <p className="min-w-[50px] text-right">
-                                {match.homeTeam.statistics.free_kicks}
-                            </p>
-                            <div className="w-[100px] relative h-[15px] bg-[#040910] rounded-md">
-                                <div
-                                    style={{
-                                        width:
-                                            match.homeTeam.statistics
-                                                .free_kicks * 2,
-                                        height: "100%",
-                                    }}
-                                    className="bg-red-500 rounded-md absolute top-0 left-0"
-                                />
-                            </div>
-                        </div>
-                        <div>Free Kicks</div>
-                        <div className="flex flex-row gap-2 items-center justify-center">
-                            <div className="w-[100px] relative h-[15px] rounded-md bg-[#040910]">
-                                <div
-                                    style={{
-                                        width:
-                                            match.awayTeam.statistics
-                                                .free_kicks * 2,
-                                        height: "100%",
-                                    }}
-                                    className="bg-green-500 rounded-md absolute top-0 left-0"
-                                />
-                            </div>
-                            <p className="min-w-[50px] text-left">
-                                {match.awayTeam.statistics.free_kicks}
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="flex flex-row w-full justify-between gap-4 px-6">
-                        <div className="flex flex-row gap-2 items-center justify-center">
-                            <p className="min-w-[50px] text-right">
-                                {match.homeTeam.statistics.yellow_cards}
-                            </p>
-                            <div className="w-[100px] relative h-[15px] bg-[#040910] rounded-md">
-                                <div
-                                    style={{
-                                        width:
-                                            match.homeTeam.statistics
-                                                .yellow_cards * 2,
-                                        height: "100%",
-                                    }}
-                                    className="bg-red-500 rounded-md absolute top-0 left-0"
-                                />
-                            </div>
-                        </div>
-                        <div className="flex flex-row gap-3 items-center justify-center">
-                            <div className="w-2 h-3 bg-yellow-400"></div>
-                            <p>Cards</p>
-                        </div>
-                        <div className="flex flex-row gap-2 items-center justify-center">
-                            <div className="w-[100px] relative h-[15px] rounded-md bg-[#040910]">
-                                <div
-                                    style={{
-                                        width:
-                                            match.awayTeam.statistics
-                                                .yellow_cards * 2,
-                                        height: "100%",
-                                    }}
-                                    className="bg-green-500 rounded-md absolute top-0 left-0"
-                                />
-                            </div>
-                            <p className="min-w-[50px] text-left">
-                                {match.awayTeam.statistics.yellow_cards}
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="flex flex-row w-full justify-between gap-4 px-6">
-                        <div className="flex flex-row gap-2 items-center justify-center">
-                            <p className="min-w-[50px] text-right">
-                                {match.homeTeam.statistics.red_cards}
-                            </p>
-                            <div className="w-[100px] relative h-[15px] bg-[#040910] rounded-md">
-                                <div
-                                    style={{
-                                        width:
-                                            match.homeTeam.statistics
-                                                .red_cards * 2,
-                                        height: "100%",
-                                    }}
-                                    className="bg-red-500 rounded-md absolute top-0 left-0"
-                                />
-                            </div>
-                        </div>
-                        <div className="flex flex-row gap-3 items-center justify-center">
-                            <div className="w-2 h-3 bg-red-600"></div>
-                            <p>Cards</p>
-                        </div>
-                        <div className="flex flex-row gap-2 items-center justify-center">
-                            <div className="w-[100px] relative h-[15px] rounded-md bg-[#040910]">
-                                <div
-                                    style={{
-                                        width:
-                                            match.awayTeam.statistics
-                                                .red_cards * 2,
-                                        height: "100%",
-                                    }}
-                                    className="bg-green-500 rounded-md absolute top-0 left-0"
-                                />
-                            </div>
-                            <p className="min-w-[50px] text-left">
-                                {match.awayTeam.statistics.red_cards}
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="flex flex-row w-full justify-between gap-4 px-6">
-                        <div className="flex flex-row gap-2 items-center justify-center">
-                            <p className="min-w-[50px] text-right">
-                                {match.homeTeam.statistics.corner_kicks}
-                            </p>
-                            <div className="w-[100px] relative h-[15px] bg-[#040910] rounded-md">
-                                <div
-                                    style={{
-                                        width:
-                                            match.homeTeam.statistics
-                                                .corner_kicks * 2,
-                                        height: "100%",
-                                    }}
-                                    className="bg-red-500 rounded-md absolute top-0 left-0"
-                                />
-                            </div>
-                        </div>
-                        <div>Corners</div>
-                        <div className="flex flex-row gap-2 items-center justify-center">
-                            <div className="w-[100px] relative h-[15px] rounded-md bg-[#040910]">
-                                <div
-                                    style={{
-                                        width:
-                                            match.awayTeam.statistics
-                                                .corner_kicks * 2,
-                                        height: "100%",
-                                    }}
-                                    className="bg-green-500 rounded-md absolute top-0 left-0"
-                                />
-                            </div>
-                            <p className="min-w-[50px] text-left">
-                                {match.awayTeam.statistics.corner_kicks}
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="flex flex-row w-full justify-between gap-4 px-6">
-                        <div className="flex flex-row gap-2 items-center justify-center">
-                            <p className="min-w-[50px] text-right">
-                                {match.homeTeam.statistics.offsides}
-                            </p>
-                            <div className="w-[100px] relative h-[15px] bg-[#040910] rounded-md">
-                                <div
-                                    style={{
-                                        width:
-                                            match.homeTeam.statistics.offsides *
-                                            2,
-                                        height: "100%",
-                                    }}
-                                    className="bg-red-500 rounded-md absolute top-0 left-0"
-                                />
-                            </div>
-                        </div>
-                        <div>Offsides</div>
-                        <div className="flex flex-row gap-2 items-center justify-center">
-                            <div className="w-[100px] relative h-[15px] rounded-md bg-[#040910]">
-                                <div
-                                    style={{
-                                        width:
-                                            match.awayTeam.statistics.offsides *
-                                            2,
-                                        height: "100%",
-                                    }}
-                                    className="bg-green-500 rounded-md absolute top-0 left-0"
-                                />
-                            </div>
-                            <p className="min-w-[50px] text-left">
-                                {match.awayTeam.statistics.offsides}
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <div className="w-full max-w-[485px] flex flex-row gap-3 mb-4">
+                <button onClick={() => {
+                    setSelectedView('stats')
+                }}
+                        className={`${selectedView === 'stats' && 'bg-[#040910]'} ease-in-out duration-300 w-full py-2 px-3 border-[2px] border-white rounded-lg`}>Stats
+                </button>
+                <button onClick={() => {
+                    setSelectedView('lineups')
+                }}
+                        className={`${selectedView === 'lineups' && 'bg-[#040910]'} ease-in-out duration-300 w-full py-2 px-3 border-[2px] border-white rounded-lg`}>Lineups
+                </button>
+                <button onClick={() => {
+                    setSelectedView('highlights')
+                }}
+                        className={`${selectedView === 'highlights' && 'bg-[#040910]'} ease-in-out duration-300 w-full py-2 px-3 border-[2px] border-white rounded-lg`}>Highlights
+                </button>
+            </div>
+            <div
+                className="flex flex-col gap-2 mb-16 items-center border-[1px] py-6 rounded-lg border-white justify-center">
+                {renderView()}
             </div>
         </div>
     );

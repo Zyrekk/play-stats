@@ -1,4 +1,4 @@
-import SelectedMatch from "@/components/ClubsPage/SelectedMatch";
+import SelectedMatch from "@/components/ClubsPage/MatchDetails/SelectedMatch";
 
 const Page = () => {
     return <SelectedMatch />;

@@ -1,14 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import Image from "next/image";
-import Link from 'next/link';
-import background from "@/components/Background/Background";
-import RenderMatchTile from "@/components/ClubsPage/RenderMatchTile";
+import RenderMatchTile from "@/components/ClubsPage/MatchDetails/RenderMatchTile";
 
 const PrevNextMatch = ({id,competition}:{id:string,competition:string}) => {
     const [matches,setMatches] = useState<any>(null)
     const url = `/teams/${id}/matches?competitions=${competition}&season=2023`; // Replace with your API endpoint
-    const [hover,setHover]=useState<boolean>(false)
     const headers = {
         'X-Auth-Token': process.env.NEXT_PUBLIC_FOOTBALL_API_TOKEN // Add any other custom headers you need
     };
