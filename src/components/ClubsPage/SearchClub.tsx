@@ -16,7 +16,7 @@ const SearchClub = ({setCompetitionCode, setClubName, clubName}: SearchClubProps
     const [competition, setCompetition] = useState<any>(null);
     const [isOptionsOpen, setIsOptionsOpen] = useState<boolean>(false);
     const [parent, enableAnimations] = useAutoAnimate(/* optional config */)
-
+    const [competitionInput, setCompetitionInput] = useState<string>('');
     const url = 'competitions'; // Replace with your API endpoint
     const headers = {
         'X-Auth-Token': process.env.NEXT_PUBLIC_FOOTBALL_API_TOKEN // Add any other custom headers you need
@@ -33,12 +33,14 @@ const SearchClub = ({setCompetitionCode, setClubName, clubName}: SearchClubProps
     }, []);
 
     const renderOptions = () => {
-        return competitions.filter((item: { code: string; }): any => (!['BSA', 'EC', 'PPL', 'CLI', 'WC'].includes(item.code))).map((competition: any) => {
+        return competitions.filter((item: { code: string; }): any => (!['BSA', 'EC', 'PPL', 'CLI', 'WC'].includes(item.code))).filter((item: { name: string; }): any => (item.name.toLowerCase().includes(competitionInput.toLowerCase()))).map((competition: any) => {
             return (
                 <button
                     onClick={() => {
                         setCompetitionCode(competition.code);
                         setCompetition(competition);
+                        setIsOptionsOpen(false)
+                        setCompetitionInput(competition.name)
                     }}
                     className="w-full flex flex-row max-w-[450px]  items-center justify-between py-2 px-4 rounded-full bg-white text-[16px]"
                     key={competition.id}>
@@ -62,25 +64,25 @@ const SearchClub = ({setCompetitionCode, setClubName, clubName}: SearchClubProps
                     <label htmlFor="small" className="mb-2 text-sm font-medium text-white">Competition</label>
                     <div
                         ref={parent}
-                        onClick={() => setIsOptionsOpen((prevState) => !prevState)}
                         className="relative lg:w-[450px] w-full max-w-[450px] flex items-center justify-between flex-row h-12 px-4 rounded-full bg-white text-[16px]">
                         <div className="flex justify-between items-center lg:w-full cursor-pointer">
 
-                            {competition === null ?
-                                <p>Select Competition</p>
-                                :
-                                <div className="flex flex-row items-center justify-center gap-2">
-                                    {competition?.emblem ?
+                            <div className="w-[40]">
+                                {competition!==null &&
+                                    <div className=" mr-2">
                                         <Image
                                             src={competition.emblem}
                                             alt={'img'}
                                             width={30}
                                             height={30}
                                         />
-                                        : 'logo'}
-                                    <p>{competition?.name}</p>
-                                </div>}
-                            <div className={`ease-in-out duration-200 ${isOptionsOpen && 'rotate-180'}`}>
+                                    </div>}
+                            </div>
+                            <input value={competitionInput} onChange={(event)=>{
+                                setCompetitionInput(event.target.value)
+                                setIsOptionsOpen(true)
+                            }} placeholder={'Type or select competition'} maxLength={30}  className="w-full outline-none" type="text"/>
+                            <div onClick={() => setIsOptionsOpen((prevState) => !prevState)} className={`ease-in-out duration-200 ${isOptionsOpen && 'rotate-180'}`}>
                                 <KeyboardArrowDownIcon/>
                             </div>
                         </div>

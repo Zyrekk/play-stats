@@ -2,7 +2,7 @@
 import React from 'react';
 import ScrollToTopButton from "@/components/ScrollToTopButton/ScrollToTopButton";
 import {leagueList} from "@/data/homeData";
-import HomeLeagueItem from "@/components/HomePage/HomeLeagueItem";
+import {HomeLeagueItem} from "@/components/HomePage/HomeLeagueItem";
 
 const HomePage = () => {
     return (

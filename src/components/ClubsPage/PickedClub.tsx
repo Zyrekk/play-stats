@@ -8,7 +8,7 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PersonIcon from '@mui/icons-material/Person';
 import FunctionsIcon from '@mui/icons-material/Functions';
-import PrevNextMatch from "@/components/ClubsPage/PrevNextMatch";
+import PrevNextMatch from "@/components/ClubsPage/MatchDetails/PrevNextMatch";
 import Link from "next/link";
 
 interface PickedClubProps {
