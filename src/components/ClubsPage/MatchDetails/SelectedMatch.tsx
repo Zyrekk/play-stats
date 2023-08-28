@@ -4,6 +4,8 @@ import Image from "next/image";
 import StatsView from "@/components/ClubsPage/MatchDetails/StatsView";
 import LineupsView from "@/components/ClubsPage/MatchDetails/LineupsView";
 import Link from "next/link";
+import HighlightsView from "@/components/ClubsPage/MatchDetails/HighlightsView";
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 interface RootObject {
     area: Area;
@@ -755,7 +757,47 @@ const match: RootObject = {
     ],
 };
 
+export interface event{
+    type:string;
+    goalType?:string;
+    cardType?:string,
+    playerOut?:{
+        id:number;
+        name:string;
+    },
+    playerIn?:{
+        id:number;
+        name:string;
+    }
+    team:{
+        id:number;
+        name:string;
+    },
+    scorer?:{
+        id:number;
+        name:string;
+    },
+    player?:{
+        id:number;
+        name:string;
+    }
+    assist?:{
+        id:number;
+        name:string;
+    },
+    score?:{
+        home:number;
+        away:number;
+    }
+}
+
+export interface eventList{
+    minute: string;
+    events:event[]
+}
+
 const SelectedMatch = () => {
+    const [parent, enableAnimations] = useAutoAnimate(/* optional config */)
     const date = new Date(match.utcDate);
     const [selectedView, setSelectedView] = useState<string>("stats");
     const getDate = () => {
@@ -765,6 +807,90 @@ const SelectedMatch = () => {
         return `${year}-${month}-${day}`;
     };
 
+    const timeLine:eventList[]=[]
+    const createTimeline=()=>{
+        match.goals.forEach((goal:Goal)=>{
+            if(timeLine.find((event)=>event.minute===goal.minute.toString())){
+                const index=timeLine.findIndex((event)=>event.minute===goal.minute.toString())
+                timeLine[index].events.push(
+                    {
+                        type:'goal',
+                        goalType:goal.type,
+                        team: goal.team,
+                        scorer: goal.scorer,
+                        score: goal.score,
+                    },
+                )
+            }
+            else{
+                const goalEvent:event={
+                    type:'goal',
+                    goalType:goal.type,
+                    team: goal.team,
+                    scorer: goal.scorer,
+                    score: goal.score,
+                };
+                timeLine.push({
+                    minute:goal.minute.toString(),
+                    events:[goalEvent]
+                })
+            }
+        })
+        match.substitutions.forEach((substitution:Substitution)=>{
+            if(timeLine.find((event)=>event.minute===substitution.minute.toString())){
+                const index=timeLine.findIndex((event)=>event.minute===substitution.minute.toString())
+                timeLine[index].events.push(
+                    {
+                        type:'substitution',
+                        playerOut:substitution.playerOut,
+                        playerIn:substitution.playerIn,
+                        team: substitution.team,
+                    },
+                )
+            }
+            else{
+                const substitutionEvent:event={
+                    type:'substitution',
+                    playerOut:substitution.playerOut,
+                    playerIn:substitution.playerIn,
+                    team: substitution.team,
+                };
+                timeLine.push({
+                    minute:substitution.minute.toString(),
+                    events:[substitutionEvent]
+                })
+            }
+        })
+        match.bookings.forEach((booking:Booking)=>{
+            if(timeLine.find((event)=>event.minute===booking.minute.toString())){
+                const index=timeLine.findIndex((event)=>event.minute===booking.minute.toString())
+                timeLine[index].events.push(
+                    {
+                        type:'card',
+                        cardType:booking.card,
+                        team: booking.team,
+                        player: booking.player,
+                    },
+                )
+            }
+            else{
+                const bookingEvent:event={
+                    type:'card',
+                    cardType:booking.card,
+                    team: booking.team,
+                    player: booking.player,
+                };
+                timeLine.push({
+                    minute:booking.minute.toString(),
+                    events:[bookingEvent]
+                })
+            }
+        })
+
+    }
+    createTimeline()
+    timeLine.sort((a,b)=>parseInt(b.minute)-parseInt(a.minute))
+
     const renderView = () => {
         switch (selectedView) {
             case "stats":
@@ -772,13 +898,15 @@ const SelectedMatch = () => {
             case "lineups":
                 return <LineupsView homeLineup={match.homeTeam.lineup} awayLineup={match.awayTeam.lineup}
                                     awayBench={match.awayTeam.bench} homeBench={match.homeTeam.bench}/>
+            case "highlights":
+                return <HighlightsView data={timeLine} matchTime={match.injuryTime} />
             default:
                 return <div/>
         }
     };
     return (
         <div className="text-white min-h-[60vh] w-full flex flex-col items-center mt-12">
-            <div className="flex flex-col bg-white px-[40px] rounded-lg gap-2 items-center justify-center">
+            <Link href={`/competitions/${match.competition.code}`} className="flex flex-col bg-white px-[40px] rounded-lg gap-2 items-center justify-center">
                 <Image
                     className="max-w-[120px] max-h-[120px]"
                     src={match.competition.emblem}
@@ -786,7 +914,7 @@ const SelectedMatch = () => {
                     width={120}
                     height={120}
                 />
-            </div>
+            </Link>
             <div className="mt-5">
                 <div className="ease-in-out duration-300 flex flex-row items-start justify-center px-6 py-6">
                     <Link href={`/clubs/${match.homeTeam.id}`}
@@ -865,8 +993,8 @@ const SelectedMatch = () => {
                         className={`${selectedView === 'highlights' && 'bg-[#040910]'} ease-in-out duration-300 w-full py-2 px-3 border-[2px] border-white rounded-lg`}>Highlights
                 </button>
             </div>
-            <div
-                className="flex flex-col gap-2 mb-16 items-center border-[1px] py-6 rounded-lg border-white justify-center">
+            <div ref={parent}
+                className="flex flex-col gap-2 mb-16 items-center  py-6 rounded-lg  justify-center">
                 {renderView()}
             </div>
         </div>

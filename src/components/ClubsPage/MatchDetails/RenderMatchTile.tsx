@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import {usePathname} from "next/navigation";
 
 const RenderMatchTile = ({
     id,
@@ -43,7 +44,8 @@ const RenderMatchTile = ({
             }
         }
     };
-    const date = new Date(match.utcDate);
+    const path=usePathname()
+
     const getDate = () => {
         // const year = date.getFullYear();
         // const month = (date.getMonth() + 1).toString().padStart(2, '0');
@@ -58,7 +60,7 @@ const RenderMatchTile = ({
     };
     return (
         <Link
-            href={"/"}
+            href={`${path.toString()}/${match.id}`}
             onMouseEnter={() => {
                 setHover(true);
             }}

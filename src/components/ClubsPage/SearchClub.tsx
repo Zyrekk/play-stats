@@ -88,7 +88,7 @@ const SearchClub = ({setCompetitionCode, setClubName, clubName}: SearchClubProps
                         </div>
                         {isOptionsOpen &&
                             <div
-                                className="absolute max-h-[170px] flex flex-col gap-4 rounded-lg overflow-y-scroll overflow-x-hidden top-[100%] pt-4 pb-6 left-0 w-full z-10 shadow-lg bg-[#122340] text-black text-[16px]">
+                                className="absolute h-[170px]   flex flex-col gap-4 rounded-lg overflow-y-scroll overflow-x-hidden top-[100%] pt-4 pb-6 left-0 w-full z-10 shadow-lg bg-[#122340] text-black text-[16px]">
                                 {
                                     competitions && renderOptions()
                                 }

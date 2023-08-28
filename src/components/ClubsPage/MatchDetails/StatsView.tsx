@@ -2,8 +2,9 @@ import React from 'react';
 import {HomeTeam} from "@/components/ClubsPage/MatchDetails/SelectedMatch";
 
 const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam}) => {
+    const color='#0c1a2d'
     return (
-        <div className="flex flex-col items-center justify-center gap-2">
+        <div className="flex flex-col items-center justify-center gap-2  py-6 rounded-lg bg-[#040910]">
             <p className=" text-center text-[18px] w-full font-semibold px-6 py-6">
                 Statistics
             </p>
@@ -14,7 +15,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                         <p className="min-w-[50px] text-right">
                             {homeTeam.statistics.ball_possession}
                         </p>
-                        <div className="w-[100px] relative h-[15px] bg-[#040910] rounded-md">
+                        <div className="w-[100px] relative h-[15px] bg-[#0c1a2d] rounded-md">
                             <div
                                 style={{
                                     width: homeTeam.statistics
@@ -27,7 +28,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                     </div>
                     <div>Possesion</div>
                     <div className="flex flex-row gap-2 items-center justify-center">
-                        <div className="w-[100px] relative h-[15px] rounded-md bg-[#040910]">
+                        <div className="w-[100px] relative h-[15px] rounded-md bg-[#0c1a2d]">
                             <div
                                 style={{
                                     width: awayTeam.statistics
@@ -48,7 +49,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                         <p className="min-w-[50px] text-right">
                             {homeTeam.statistics.shots}
                         </p>
-                        <div className="w-[100px] relative h-[15px] bg-[#040910] rounded-md">
+                        <div className="w-[100px] relative h-[15px] bg-[#0c1a2d] rounded-md">
                             <div
                                 style={{
                                     width:
@@ -61,7 +62,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                     </div>
                     <div>Shots</div>
                     <div className="flex flex-row gap-2 items-center justify-center">
-                        <div className="w-[100px] relative h-[15px] rounded-md bg-[#040910]">
+                        <div className="w-[100px] relative h-[15px] rounded-md bg-[#0c1a2d]">
                             <div
                                 style={{
                                     width:
@@ -82,7 +83,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                         <p className="min-w-[50px] text-right">
                             {homeTeam.statistics.shots_on_goal}
                         </p>
-                        <div className="w-[100px] relative h-[15px] bg-[#040910] rounded-md">
+                        <div className="w-[100px] relative h-[15px] bg-[#0c1a2d] rounded-md">
                             <div
                                 style={{
                                     width:
@@ -96,7 +97,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                     </div>
                     <div>Shots on target</div>
                     <div className="flex flex-row gap-2 items-center justify-center">
-                        <div className="w-[100px] relative h-[15px] rounded-md bg-[#040910]">
+                        <div className="w-[100px] relative h-[15px] rounded-md bg-[#0c1a2d]">
                             <div
                                 style={{
                                     width:
@@ -118,7 +119,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                         <p className="min-w-[50px] text-right">
                             {homeTeam.statistics.free_kicks}
                         </p>
-                        <div className="w-[100px] relative h-[15px] bg-[#040910] rounded-md">
+                        <div className="w-[100px] relative h-[15px] bg-[#0c1a2d] rounded-md">
                             <div
                                 style={{
                                     width:
@@ -132,7 +133,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                     </div>
                     <div>Free Kicks</div>
                     <div className="flex flex-row gap-2 items-center justify-center">
-                        <div className="w-[100px] relative h-[15px] rounded-md bg-[#040910]">
+                        <div className="w-[100px] relative h-[15px] rounded-md bg-[#0c1a2d]">
                             <div
                                 style={{
                                     width:
@@ -154,7 +155,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                         <p className="min-w-[50px] text-right">
                             {homeTeam.statistics.yellow_cards}
                         </p>
-                        <div className="w-[100px] relative h-[15px] bg-[#040910] rounded-md">
+                        <div className="w-[100px] relative h-[15px] bg-[#0c1a2d] rounded-md">
                             <div
                                 style={{
                                     width:
@@ -171,7 +172,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                         <p>Cards</p>
                     </div>
                     <div className="flex flex-row gap-2 items-center justify-center">
-                        <div className="w-[100px] relative h-[15px] rounded-md bg-[#040910]">
+                        <div className="w-[100px] relative h-[15px] rounded-md bg-[#0c1a2d]">
                             <div
                                 style={{
                                     width:
@@ -193,7 +194,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                         <p className="min-w-[50px] text-right">
                             {homeTeam.statistics.red_cards}
                         </p>
-                        <div className="w-[100px] relative h-[15px] bg-[#040910] rounded-md">
+                        <div className="w-[100px] relative h-[15px] bg-[#0c1a2d] rounded-md">
                             <div
                                 style={{
                                     width:
@@ -210,7 +211,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                         <p>Cards</p>
                     </div>
                     <div className="flex flex-row gap-2 items-center justify-center">
-                        <div className="w-[100px] relative h-[15px] rounded-md bg-[#040910]">
+                        <div className="w-[100px] relative h-[15px] rounded-md bg-[#0c1a2d]">
                             <div
                                 style={{
                                     width:
@@ -232,7 +233,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                         <p className="min-w-[50px] text-right">
                             {homeTeam.statistics.corner_kicks}
                         </p>
-                        <div className="w-[100px] relative h-[15px] bg-[#040910] rounded-md">
+                        <div className="w-[100px] relative h-[15px] bg-[#0c1a2d] rounded-md">
                             <div
                                 style={{
                                     width:
@@ -246,7 +247,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                     </div>
                     <div>Corners</div>
                     <div className="flex flex-row gap-2 items-center justify-center">
-                        <div className="w-[100px] relative h-[15px] rounded-md bg-[#040910]">
+                        <div className="w-[100px] relative h-[15px] rounded-md bg-[#0c1a2d]">
                             <div
                                 style={{
                                     width:
@@ -268,7 +269,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                         <p className="min-w-[50px] text-right">
                             {homeTeam.statistics.offsides}
                         </p>
-                        <div className="w-[100px] relative h-[15px] bg-[#040910] rounded-md">
+                        <div className="w-[100px] relative h-[15px] bg-[#0c1a2d] rounded-md">
                             <div
                                 style={{
                                     width:
@@ -282,7 +283,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                     </div>
                     <div>Offsides</div>
                     <div className="flex flex-row gap-2 items-center justify-center">
-                        <div className="w-[100px] relative h-[15px] rounded-md bg-[#040910]">
+                        <div className="w-[100px] relative h-[15px] rounded-md bg-[#0c1a2d]">
                             <div
                                 style={{
                                     width:
