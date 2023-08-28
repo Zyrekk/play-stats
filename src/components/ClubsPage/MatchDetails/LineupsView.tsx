@@ -26,36 +26,36 @@ const LineupsView = ({homeLineup, awayLineup,homeBench,awayBench}: {homeBench:Li
             </p>
             <div className="flex flex-col gap-2">
                 <p>legend:</p>
-                <div className="flex flex-row gap-3">
+                <div className="flex flex-col items-start lg:items-baseline lg:flex-row gap-3">
                     <div className="flex flex-row gap-1 items-center justify-center">
-                        <div className="rounded-full h-3 w-3 bg-[#f5900b]"/>
+                        <div className="rounded-full h-5 w-5 lg:h-3 lg:w-3 bg-[#f5900b]"/>
                         <p>Goalkeeper</p>
                     </div>
                     <div className="flex flex-row gap-1 items-center justify-center">
-                        <div className="rounded-full h-3 w-3 bg-[#ffc60c]"/>
+                        <div className="rounded-full h-5 w-5 lg:h-3 lg:w-3 bg-[#ffc60c]"/>
                         <p>Defender</p>
                     </div>
                     <div className="flex flex-row gap-1 items-center justify-center">
-                        <div className="rounded-full h-3 w-3 bg-[#16a34a]"/>
+                        <div className="rounded-full h-5 w-5 lg:h-3 lg:w-3 bg-[#16a34a]"/>
                         <p>Midfielder</p>
                     </div>
                     <div className="flex flex-row gap-1 items-center justify-center">
-                        <div className="rounded-full h-3 w-3 bg-[#1693a3] "/>
+                        <div className="rounded-full h-5 w-5 lg:h-3 lg:w-3 bg-[#1693a3] "/>
                         <p>Forward</p>
                     </div>
                 </div>
             </div>
             <div className="w-3/4 h-[2px] bg-white px-3 mb-8"/>
-            <div className="flex flex-row w-full  gap-4">
+            <div className="flex flex-row w-full gap-2  lg:gap-4">
                 <div className="flex flex-col gap-3">
                     <p className=" border-b-[3px] border-white mx-6 px-2 w-fit font-semibold mt-4">Starting 11</p>
                     <div className="flex-col gap-4 flex">
                         {homeLineup.map((player, index) => (
                             <div key={index} className="flex flex-row items-center gap-2 justify-start text-center text-[18px] w-full font-semibold px-6">
-                                <div style={{backgroundColor:returnColor(player)}} className="bg-[#040910] rounded-full flex items-center justify-center w-[30px] h-[30px]">
-                                    <p className="text-[14px]">{player.shirtNumber}</p>
+                                <div style={{backgroundColor:returnColor(player)}} className="bg-[#040910] rounded-full flex items-center justify-center min-w-[30px] min-h-[30px]">
+                                    <p className="text-[12px] lg:text-[14px]">{player.shirtNumber}</p>
                                 </div>
-                                <p className="text-[14px]">{player.name}</p>
+                                <p className="text-[12px] lg:text-[14px]">{player.name}</p>
                             </div>
                         ))}
                     </div>
@@ -63,10 +63,10 @@ const LineupsView = ({homeLineup, awayLineup,homeBench,awayBench}: {homeBench:Li
                     <div className="flex-col gap-4 flex">
                         {homeBench.map((player, index) => (
                             <div key={index} className="flex flex-row items-center gap-2 justify-start text-center text-[18px] w-full font-semibold px-6">
-                                <div style={{backgroundColor:returnColor(player)}} className="bg-[#040910] rounded-full flex items-center justify-center w-[30px] h-[30px]">
-                                    <p className="text-[14px]">{player.shirtNumber}</p>
+                                <div style={{backgroundColor:returnColor(player)}} className="bg-[#040910] rounded-full flex items-center justify-center min-w-[30px] min-h-[30px]">
+                                    <p className="text-[12px] lg:text-[14px]">{player.shirtNumber}</p>
                                 </div>
-                                <p className="text-[14px]">{player.name}</p>
+                                <p className="text-[12px] lg:text-[14px]">{player.name}</p>
                             </div>
                         ))}
                     </div>
@@ -76,9 +76,9 @@ const LineupsView = ({homeLineup, awayLineup,homeBench,awayBench}: {homeBench:Li
                     <div className="flex-col gap-4 flex">
                         {awayLineup.map((player, index) => (
                             <div key={index} className="flex flex-row items-center gap-2 justify-end text-center text-[18px] w-full font-semibold px-6">
-                                <p className="text-[14px]">{player.name}</p>
-                                <div style={{backgroundColor:returnColor(player)}} className="bg-[#040910] rounded-full flex items-center justify-center w-[30px] h-[30px]">
-                                    <p className="text-[14px]">{player.shirtNumber}</p>
+                                <p className="text-[12px] lg:text-[14px]">{player.name}</p>
+                                <div style={{backgroundColor:returnColor(player)}} className="bg-[#040910] rounded-full flex items-center justify-center min-w-[30px] min-h-[30px]">
+                                    <p className="text-[12px] lg:text-[14px]">{player.shirtNumber}</p>
                                 </div>
                             </div>
                         ))}
@@ -87,16 +87,14 @@ const LineupsView = ({homeLineup, awayLineup,homeBench,awayBench}: {homeBench:Li
                     <div className="flex-col gap-4 flex">
                         {awayBench.map((player, index) => (
                             <div key={index} className="flex flex-row items-center gap-2 justify-end text-center text-[18px] w-full font-semibold px-6">
-                                <p className="text-[14px]">{player.name}</p>
-                                <div style={{backgroundColor:returnColor(player)}} className="bg-[#040910] rounded-full flex items-center justify-center w-[30px] h-[30px]">
-                                    <p className="text-[14px]">{player.shirtNumber}</p>
+                                <p className="text-[12px] lg:text-[14px]">{player.name}</p>
+                                <div style={{backgroundColor:returnColor(player)}} className="bg-[#040910] rounded-full flex items-center justify-center min-w-[30px] min-h-[30px]">
+                                    <p className="text-[12px] lg:text-[14px]">{player.shirtNumber}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
-
                 </div>
-
             </div>
         </div>
     );

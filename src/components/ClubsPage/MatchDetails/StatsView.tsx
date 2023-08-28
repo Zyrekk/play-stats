@@ -2,15 +2,16 @@ import React from 'react';
 import {HomeTeam} from "@/components/ClubsPage/MatchDetails/SelectedMatch";
 
 const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam}) => {
-    const color='#0c1a2d'
+
     return (
-        <div className="flex flex-col items-center justify-center gap-2  py-6 rounded-lg bg-[#040910]">
-            <p className=" text-center text-[18px] w-full font-semibold px-6 py-6">
+        <div className="flex flex-col max-w-[360px] lg:max-w-none items-center justify-center gap-2  py-6 rounded-lg bg-[#040910]">
+            <p className=" text-center text-[18px] w-full font-semibold lg:px-6 py-6">
                 Statistics
             </p>
-            <div className="w-3/4 h-[2px] bg-white px-3 mb-8"/>
-            <div className="flex flex-col w-full  gap-4">
-                <div className="flex flex-row w-full justify-between gap-4 px-6">
+            <div className=" w-[60%] lg:w-3/4 h-[2px] bg-white px-3 mb-8"/>
+            <div className="flex flex-col w-full  lg:gap-4">
+                <div className="lg:hidden text-[14px] lg:text-[16px] text-center mt-2 mb-1">Possesion</div>
+                <div className="flex flex-row w-full justify-between gap-1 lg:gap-4 lg:px-6">
                     <div className="flex flex-row gap-2 items-center justify-center">
                         <p className="min-w-[50px] text-right">
                             {homeTeam.statistics.ball_possession}
@@ -26,7 +27,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                             />
                         </div>
                     </div>
-                    <div>Possesion</div>
+                    <div className="hidden lg:block text-[14px] lg:text-[16px] text-center">Possesion</div>
                     <div className="flex flex-row gap-2 items-center justify-center">
                         <div className="w-[100px] relative h-[15px] rounded-md bg-[#0c1a2d]">
                             <div
@@ -43,8 +44,8 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                         </p>
                     </div>
                 </div>
-
-                <div className="flex flex-row w-full justify-between gap-4 px-6">
+                <div className="lg:hidden text-[14px] lg:text-[16px] text-center mt-2 mb-1">Shots</div>
+                <div className="flex flex-row w-full justify-between gap-1 lg:gap-4 lg:px-6">
                     <div className="flex flex-row gap-2 items-center justify-center">
                         <p className="min-w-[50px] text-right">
                             {homeTeam.statistics.shots}
@@ -60,7 +61,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                             />
                         </div>
                     </div>
-                    <div>Shots</div>
+                    <div className="hidden lg:block text-[14px] lg:text-[16px] text-center">Shots</div>
                     <div className="flex flex-row gap-2 items-center justify-center">
                         <div className="w-[100px] relative h-[15px] rounded-md bg-[#0c1a2d]">
                             <div
@@ -77,8 +78,8 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                         </p>
                     </div>
                 </div>
-
-                <div className="flex flex-row w-full justify-between gap-4 px-6">
+                <div className="lg:hidden text-[14px] lg:text-[16px] text-center mt-2 mb-1">Shots on target</div>
+                <div className="flex flex-row w-full justify-between gap-1 lg:gap-4 lg:px-6">
                     <div className="flex flex-row gap-2 items-center justify-center">
                         <p className="min-w-[50px] text-right">
                             {homeTeam.statistics.shots_on_goal}
@@ -95,7 +96,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                             />
                         </div>
                     </div>
-                    <div>Shots on target</div>
+                    <div className="hidden lg:block text-[14px] lg:text-[16px] text-center">Shots on target</div>
                     <div className="flex flex-row gap-2 items-center justify-center">
                         <div className="w-[100px] relative h-[15px] rounded-md bg-[#0c1a2d]">
                             <div
@@ -113,8 +114,8 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                         </p>
                     </div>
                 </div>
-
-                <div className="flex flex-row w-full justify-between gap-4 px-6">
+                <div className="lg:hidden text-[14px] lg:text-[16px] text-center mt-2 mb-1">Free Kicks</div>
+                <div className="flex flex-row w-full justify-between gap-1 lg:gap-4 lg:px-6">
                     <div className="flex flex-row gap-2 items-center justify-center">
                         <p className="min-w-[50px] text-right">
                             {homeTeam.statistics.free_kicks}
@@ -131,7 +132,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                             />
                         </div>
                     </div>
-                    <div>Free Kicks</div>
+                    <div className="hidden lg:block text-[14px] lg:text-[16px] text-center">Free Kicks</div>
                     <div className="flex flex-row gap-2 items-center justify-center">
                         <div className="w-[100px] relative h-[15px] rounded-md bg-[#0c1a2d]">
                             <div
@@ -149,8 +150,11 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                         </p>
                     </div>
                 </div>
-
-                <div className="flex flex-row w-full justify-between gap-4 px-6">
+                <div className="lg:hidden text-[14px] lg:text-[16px] items-center justify-center text-center flex flex-row gap-1 mt-2 mb-1">
+                    <div className="w-2 h-3 bg-yellow-400"/>
+                    Cards
+                </div>
+                <div className="flex flex-row w-full justify-between gap-1 lg:gap-4 lg:px-6">
                     <div className="flex flex-row gap-2 items-center justify-center">
                         <p className="min-w-[50px] text-right">
                             {homeTeam.statistics.yellow_cards}
@@ -168,8 +172,8 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                         </div>
                     </div>
                     <div className="flex flex-row gap-3 items-center justify-center">
-                        <div className="w-2 h-3 bg-yellow-400"></div>
-                        <p>Cards</p>
+                        <div className="hidden lg:block w-2 h-3 bg-yellow-400"></div>
+                        <p className="hidden lg:block text-[14px] lg:text-[16px] text-center">Cards</p>
                     </div>
                     <div className="flex flex-row gap-2 items-center justify-center">
                         <div className="w-[100px] relative h-[15px] rounded-md bg-[#0c1a2d]">
@@ -188,8 +192,11 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                         </p>
                     </div>
                 </div>
-
-                <div className="flex flex-row w-full justify-between gap-4 px-6">
+                <div className="lg:hidden text-[14px] lg:text-[16px] items-center justify-center text-center flex flex-row gap-1 mt-2 mb-1">
+                    <div className="w-2 h-3 bg-red-600"/>
+                    Cards
+                </div>
+                <div className="flex flex-row w-full justify-between gap-1 lg:gap-4 lg:px-6">
                     <div className="flex flex-row gap-2 items-center justify-center">
                         <p className="min-w-[50px] text-right">
                             {homeTeam.statistics.red_cards}
@@ -207,8 +214,8 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                         </div>
                     </div>
                     <div className="flex flex-row gap-3 items-center justify-center">
-                        <div className="w-2 h-3 bg-red-600"></div>
-                        <p>Cards</p>
+                        <div className="hidden lg:block w-2 h-3 bg-red-600"></div>
+                        <p className="hidden lg:block text-[14px] lg:text-[16px] text-center ">Cards</p>
                     </div>
                     <div className="flex flex-row gap-2 items-center justify-center">
                         <div className="w-[100px] relative h-[15px] rounded-md bg-[#0c1a2d]">
@@ -227,8 +234,8 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                         </p>
                     </div>
                 </div>
-
-                <div className="flex flex-row w-full justify-between gap-4 px-6">
+                <div className="lg:hidden text-[14px] lg:text-[16px] text-center mt-2 mb-1">Corners</div>
+                <div className="flex flex-row w-full justify-between gap-1 lg:gap-4 lg:px-6">
                     <div className="flex flex-row gap-2 items-center justify-center">
                         <p className="min-w-[50px] text-right">
                             {homeTeam.statistics.corner_kicks}
@@ -245,7 +252,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                             />
                         </div>
                     </div>
-                    <div>Corners</div>
+                    <div className="hidden lg:block text-[14px] lg:text-[16px] text-center">Corners</div>
                     <div className="flex flex-row gap-2 items-center justify-center">
                         <div className="w-[100px] relative h-[15px] rounded-md bg-[#0c1a2d]">
                             <div
@@ -263,8 +270,8 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                         </p>
                     </div>
                 </div>
-
-                <div className="flex flex-row w-full justify-between gap-4 px-6">
+                <div className="lg:hidden text-[14px] lg:text-[16px] text-center mt-2 mb-1">Offsides</div>
+                <div className="flex flex-row w-full justify-between gap-1 lg:gap-4 lg:px-6">
                     <div className="flex flex-row gap-2 items-center justify-center">
                         <p className="min-w-[50px] text-right">
                             {homeTeam.statistics.offsides}
@@ -281,7 +288,7 @@ const StatsView = ({homeTeam, awayTeam}: {homeTeam: HomeTeam, awayTeam: HomeTeam
                             />
                         </div>
                     </div>
-                    <div>Offsides</div>
+                    <div className="hidden lg:block text-[14px] lg:text-[16px] text-center">Offsides</div>
                     <div className="flex flex-row gap-2 items-center justify-center">
                         <div className="w-[100px] relative h-[15px] rounded-md bg-[#0c1a2d]">
                             <div

@@ -57,12 +57,12 @@ const HighlightsView = ({data,matchTime}: { data: eventList[],matchTime:number }
     };
 
     return (
-        <div className="px-12 py-6 rounded-lg bg-[#040910]">
+        <div className="lg:px-24 flex items-center justify-center flex-col py-6 rounded-lg bg-[#040910]">
             <p className=" text-center text-[18px] w-full font-semibold px-6 py-6">
                 Highlights
             </p>
             <div className="w-3/4 h-[2px] mx-auto bg-white px-3 mb-8"/>
-            <ol className="px-12  bg-[#040910] relative border-l-[2px] border-green-500 text-black">
+            <ol className=" ml-8 mb-10  bg-[#040910] relative border-l-[2px] border-green-500 text-black">
                 <li className="mb-10 ml-6">
                     <span
                         className="absolute text-[13px]  flex items-center justify-center w-6 h-6 bg-white rounded-full -left-3 ring-4 ring-white font-semibold">
@@ -74,7 +74,7 @@ const HighlightsView = ({data,matchTime}: { data: eventList[],matchTime:number }
                     </div>
                 </li>
                 {renderTimeline()}
-                <li className="mb-10 ml-6">
+                <li className=" ml-6">
                     <span
                         className="absolute text-[13px]  flex items-center justify-center w-6 h-6 bg-white rounded-full -left-3 ring-4 ring-white font-semibold">
                         1'

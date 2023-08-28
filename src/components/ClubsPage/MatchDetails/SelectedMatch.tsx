@@ -916,7 +916,7 @@ const SelectedMatch = () => {
                 />
             </Link>
             <div className="mt-5">
-                <div className="ease-in-out duration-300 flex flex-row items-start justify-center px-6 py-6">
+                <div className="ease-in-out duration-300 flex flex-row items-start justify-center lg:px-6 py-6">
                     <Link href={`/clubs/${match.homeTeam.id}`}
                           className="flex flex-col w-full  max-w-[100px] items-center justify-center">
                         <Image
@@ -976,7 +976,7 @@ const SelectedMatch = () => {
                     </Link>
                 </div>
             </div>
-            <div className="w-full max-w-[485px] flex flex-row gap-3 mb-4">
+            <div className="w-full max-w-[300px] lg:max-w-[485px] flex flex-row flex-wrap lg:flex-nowrap gap-3 mb-4">
                 <button onClick={() => {
                     setSelectedView('stats')
                 }}
@@ -994,7 +994,7 @@ const SelectedMatch = () => {
                 </button>
             </div>
             <div ref={parent}
-                className="flex flex-col gap-2 mb-16 items-center  py-6 rounded-lg  justify-center">
+                className="flex flex-col gap-2 mb-16 items-center py-6 rounded-lg justify-center">
                 {renderView()}
             </div>
         </div>
