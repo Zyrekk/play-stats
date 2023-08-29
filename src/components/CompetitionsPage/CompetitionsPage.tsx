@@ -32,7 +32,7 @@ const CompetitionsPage = () => {
             </div>
             <div className="w-max flex flex-col justify-center items-center lg:items-start gap-6">
                 {competitions ?
-                    competitions.filter((item: { code: string; }):any=>(!['BSA','EC','PPL','CLI','WC'].includes(item.code))).map((competition: any) => (<CompetitionTile key={competition.id} competition={competition}/>))
+                    competitions.filter((item: { code: string; }):any=>(!['BSA','EC','PPL','CLI','WC','CL'].includes(item.code))).map((competition: any) => (<CompetitionTile key={competition.id} competition={competition}/>))
                     : <Loading/>}
             </div>
         </div>

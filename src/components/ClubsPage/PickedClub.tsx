@@ -24,7 +24,6 @@ const PickedClub = ({id}: PickedClubProps) => {
     useEffect(() => {
         axios.get(`/api/${url}`, {headers})
             .then(response => {
-                // console.log('Response:', response.data.standings[0].table);
                 setTeam(response.data)
             })
             .catch(error => {
@@ -51,7 +50,7 @@ const PickedClub = ({id}: PickedClubProps) => {
                             <div className="flex flex-col gap-2 h-full">
                                 <h1 className="text-[22px] font-bold">{team && team.name}</h1>
                                 <div className="flex flex-row gap-2">
-                                    {team.area ?
+                                    {team.area.flag ?
                                         <Image
                                             className=""
                                             src={team.area.flag}
@@ -59,7 +58,7 @@ const PickedClub = ({id}: PickedClubProps) => {
                                             width={20}
                                             height={20}
                                         />
-                                        : 'logo'}
+                                        : ''}
                                     <p className="text-[14px]">{team.area.name && team.area.name}</p>
                                 </div>
                                 {team &&
@@ -67,13 +66,13 @@ const PickedClub = ({id}: PickedClubProps) => {
                                         <div className="rounded-full w-fit bg-white px-1 py-1">
                                             <Image
                                                 className=""
-                                                src={team.runningCompetitions[0].emblem}
+                                                src={team.runningCompetitions.filter((competition: { type: string; })=>competition.type==="LEAGUE")[0].emblem}
                                                 alt={'team logo'}
                                                 width={40}
                                                 height={40}
                                             />
                                         </div>
-                                        <p className='text-[14px]'>{team.runningCompetitions[0].name}</p>
+                                        <p className='text-[14px]'>{team.runningCompetitions.filter((competition: { type: string; })=>competition.type==="LEAGUE")[0].name}</p>
                                     </div>
                                 }
                             </div>
@@ -84,7 +83,7 @@ const PickedClub = ({id}: PickedClubProps) => {
                                     <PersonIcon/>
                                     <p className="text-[12px]">Manager</p>
                                 </div>
-                                <p className="border-[1px] text-center border-white py-2 px-6 bg-[#040910] rounded-lg">{team.coach.name}</p>
+                                <p className="border-[1px] text-center border-white py-2 px-6 bg-[#040910] rounded-lg">{team.coach.name?team.coach.name:'No manager info'}</p>
                             </div>
                             <div className="flex flex-col gap-2">
                                 <div className="flex flex-row gap-1 items-center justify-start">
@@ -120,12 +119,12 @@ const PickedClub = ({id}: PickedClubProps) => {
                                 }, 0) / team.squad.length).toFixed(1)}</p>
                             </div>
                         </div>
-                        <Link href={`/competitions/${team.runningCompetitions[team.runningCompetitions.length - 1].code}`} className=" hidden md:block">
+                        <Link href={`/competitions/${team.runningCompetitions.filter((competition: { type: string; })=>competition.type==="LEAGUE")[0].code}`} className=" hidden md:block">
                             {team ?
                                 <div className="rounded-full bg-white px-2 py-2">
                                     <Image
                                         className=""
-                                        src={team.runningCompetitions[team.runningCompetitions.length - 1].emblem}
+                                        src={team.runningCompetitions.filter((competition: { type: string; })=>competition.type==="LEAGUE")[0].emblem}
                                         alt={'team logo'}
                                         width={50}
                                         height={50}
@@ -137,7 +136,7 @@ const PickedClub = ({id}: PickedClubProps) => {
                 }
                 <div className="flex flex-col items-end lg:flex-row gap-5">
                     {team && <PickedClubPlayers squad={team.squad}/>}
-                    {team && <PrevNextMatch id={team.id} competition={team.runningCompetitions[team.runningCompetitions.length - 1].code}/>}
+                    {team && <PrevNextMatch id={team.id} competition={team.runningCompetitions.filter((competition: { type: string; })=>competition.type==="LEAGUE")[0].code}/>}
                 </div>
             </div>
         </div>
