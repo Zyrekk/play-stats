@@ -5,12 +5,10 @@ import {usePathname} from "next/navigation";
 
 const RenderMatchTile = ({
     id,
-    competition,
     match,
     type,
 }: {
     id: string;
-    competition: string;
     match: any;
     type: string;
 }) => {

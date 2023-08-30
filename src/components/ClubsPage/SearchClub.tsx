@@ -33,7 +33,7 @@ const SearchClub = ({setCompetitionCode, setClubName, clubName}: SearchClubProps
     }, []);
 
     const renderOptions = () => {
-        return competitions.filter((item: { code: string; }): any => (!['BSA', 'EC', 'PPL', 'CLI', 'WC'].includes(item.code))).filter((item: { name: string; }): any => (item.name.toLowerCase().includes(competitionInput.toLowerCase()))).map((competition: any) => {
+        return competitions.filter((item: { code: string; }): any => (!['BSA', 'EC', 'PPL', 'CLI','CL', 'WC'].includes(item.code))).filter((item: { name: string; }): any => (item.name.toLowerCase().includes(competitionInput.toLowerCase()))).map((competition: any) => {
             return (
                 <button
                     onClick={() => {
