@@ -6,6 +6,8 @@ import Loading from "@/components/Loading/Loading";
 import SingleCompetitionRow from "@/components/CompetitionsPage/SingleCompetitionRow";
 import Filter from "@/components/CompetitionsPage/Filter";
 import Image from "next/image";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import Link from "next/link";
 
 interface SingleCompetitionProps {
     code: string
@@ -38,6 +40,9 @@ const SingleCompetition = ({code}: SingleCompetitionProps) => {
                         <caption className="p-5 text-3xl font-semibold text-center"
                                  style={{backgroundColor: tableInfo ? tableInfo.bgColor : '#5C5C5C'}}>
                             <div className="flex w-full flex-col">
+                                <Link href={'/competitions'}  className="flex w-[100px] text-[14px] py-1 rounded-lg flex-row items-center justify-center">
+                                    <ArrowBackIosIcon/> Back
+                                </Link>
                                 <div className="flex w-full items-center justify-center pt-6 flex-col mb-8 lg:mb-0 lg:flex-row gap-4">
                                     {leagueInfo.competition.emblem ?
                                         <div className="bg-white p-2 rounded-lg">

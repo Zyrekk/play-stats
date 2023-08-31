@@ -1,22 +1,22 @@
-import cl from '../assets/CL.jpg'
+import cl from '../assets/L1.jpg'
 import pl from '../assets/PL.jpg'
 import es from '../assets/ES.png'
 import {LeagueItemProps} from "@/components/HomePage/HomeLeagueItem";
 
 export const leagueList:LeagueItemProps[]=[
     {
-        image:cl,
-        text:'Thrilling Champions League results!',
-        buttonText:'Check out more!',
-        bgColor:'#14144A',
-        link:'/CL'
-    },
-    {
         image:pl,
         text:'World\'s Mightiest Football League!',
         buttonText:'Check out more!',
         bgColor:'#ee2b65',
         link:'/PL'
+    },
+    {
+        image:cl,
+        text:'Thrilling Ligue 1 results!',
+        buttonText:'Check out more!',
+        bgColor:'#000',
+        link:'/FL1'
     },
     {
         image:es,

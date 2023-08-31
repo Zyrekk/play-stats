@@ -41,17 +41,9 @@ const Hamburger = ({isHamburgerOpen, setIsHamburgerOpen}: HamburgerProps) => {
                     </Link>
                 </li>
                 <li onClick={()=>{setIsHamburgerOpen(false)}}>
-                    <Link href="/" className="link flex flex-row items-center justify-center gap-2">
+                    <Link href="/clubs" className="link flex flex-row items-center justify-center gap-2">
                         <GroupsIcon sx={{fontSize: 35}}/>
                         <span>Clubs</span>
-                    </Link>
-                </li>
-                <li onClick={()=>{setIsHamburgerOpen(false)}}>
-                    <Link href="/" className="link flex flex-row items-center justify-center gap-2 overflow-visible">
-                        <div className="relative w-[15px] h-[15px] rounded-full bg-red-600 overflow-visible">
-                            <div className="absolute h-full w-full rounded-full animate-ping bg-red-600 overflow-visible"/>
-                        </div>
-                        <span>Live</span>
                     </Link>
                 </li>
                 <li className="link flex flex-row items-center justify-center gap-2" onClick={()=>{setIsHamburgerOpen(false)}}>

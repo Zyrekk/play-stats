@@ -37,11 +37,6 @@ const Footer = () => {
                             <span>Clubs</span>
                         </Link>
                     </li>
-                    <li>
-                        <Link href="/" className="link flex flex-row items-center justify-center gap-2">
-                            <span>Live</span>
-                        </Link>
-                    </li>
                 </ul>
             <div className="w-full h-[1px] bg-white mt-[40px]"/>
             <div className="mt-[50px] flex flex-row gap-4">

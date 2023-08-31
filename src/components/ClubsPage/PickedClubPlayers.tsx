@@ -10,19 +10,33 @@ const PickedClubPlayers = ({squad}: any) => {
         const today = new Date();
         const birthDate = new Date(player.dateOfBirth);
         const age = today.getFullYear() - birthDate.getFullYear();
-
         const nationality = () => {
             switch (player.nationality) {
                 case 'England':
                     return "GB"
+                case 'Scotland':
+                    return "GB"
+                case 'Wales':
+                    return "GB"
+                case 'Kosovo':
+                    return "RS"
+                case 'Ivory Coast':
+                    return "CI"
+                case 'Côte d’Ivoire':
+                    return "CI"
+                case 'French Guiana':
+                    return "FR"
+                case 'Guadeloupe':
+                    return "FR"
                 case 'Bosnia-Herzegovina':
                     return "BA"
+                case 'Korea, South':
+                    return "KR"
                 default:
                     return code(player.nationality)
             }
         }
 
-        // const nationality=player.nationality==='England'?'GB':code(player.nationality)
         return (
             <tr key={index} className={`text-white ${index % 2 == 0 ? "bg-[#0C1B31]" : "bg-[#081221]"}`}>
                 <td scope="col" className="pl-4 hidden md:table-cell  lg:px-4 py-3 text-center">

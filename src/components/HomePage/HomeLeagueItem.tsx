@@ -19,7 +19,7 @@ export const HomeLeagueItem = ({
     data: LeagueItemProps;
 }) => {
     return (
-        <div className={`w-full justify-between font-bold ${[1,2].includes(index)?'text-black':'text-white'} py-[40px] flex px-[32px] items-center flex-col lg:flex-row`} style={{backgroundColor:data.bgColor}}>
+        <div className={`w-full justify-between font-bold ${[2].includes(index)?'text-black':'text-white'} py-[40px] flex px-[32px] items-center flex-col lg:flex-row`} style={{backgroundColor:data.bgColor}}>
             <div className="flex flex-col items-center lg:flex-row lg:gap-[30px]">
                 <div className="slideFromLeft w-[100px] lg:w-[200px] pb-[20px]">
                     <Image
@@ -34,7 +34,7 @@ export const HomeLeagueItem = ({
             </div>
             <Link href={`/competitions${data.link}`} className={`slideFromLeft mt-[30px] lg:mt-0 ease-in-out duration-300 border-[1px] px-[20px]
                         py-[10px] rounded-full flex justify-center items-center
-                        flex-row gap-[10px] text-[14px] xl:text-[18px] ${[1,2].includes(index)?' border-black hover:bg-black hover:text-[#FFFFFF]':'border-white hover:bg-white hover:text-[#000000]'} `}>
+                        flex-row gap-[10px] text-[14px] xl:text-[18px] ${[2].includes(index)?' border-black hover:bg-black hover:text-[#FFFFFF]':'border-white hover:bg-white hover:text-[#000000]'} `}>
                 <span className="min-w-[120px] xl:min-w-[150px]">{data.buttonText}</span>
                 <NavigateNextIcon sx={{fontSize: 28}} />
             </Link>
