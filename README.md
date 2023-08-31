@@ -29,3 +29,6 @@ Run app and try it out.
 ```
   next start
 ```
+## Authors
+
+- [@Zyrekk](https://github.com/Zyrekk)
