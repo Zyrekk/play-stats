@@ -12,7 +12,6 @@ const RenderMatchTile = ({
     match: any;
     type: string;
 }) => {
-    const [hover, setHover] = useState<boolean>(false);
     const isWin = (match: any) => {
         if (match.homeTeam.id === id) {
             if (match.score.fullTime.home === null) {
@@ -57,14 +56,7 @@ const RenderMatchTile = ({
         return `${year}-${month}-${day} ${hours}:${minutes}`;
     };
     return (
-        <Link
-            href={`${path.toString()}/${match.id}`}
-            onMouseEnter={() => {
-                setHover(true);
-            }}
-            onMouseLeave={() => {
-                setHover(false);
-            }}
+        <div
             className="border-[1px] border-white rounded-lg"
         >
             <p className="bg-[#040910] rounded-t-lg px-8 pt-[18px] pb-6 text-center">
@@ -77,9 +69,8 @@ const RenderMatchTile = ({
             )}
             <div
                 style={
-                    hover
-                        ? { backgroundColor: "#fff" }
-                        : { backgroundColor: "#081221" }
+
+                         { backgroundColor: "#081221" }
                 }
                 className="ease-in-out duration-300 flex flex-row items-center justify-center px-6 py-6"
             >
@@ -93,15 +84,14 @@ const RenderMatchTile = ({
                     />
                     <p
                         className="mt-3"
-                        style={hover ? { color: "#000" } : { color: "#fff" }}
+                        style={{ color: "#fff" }}
                     >
                         {match.homeTeam.tla}
                     </p>
                     {match.score.fullTime.home !== null ? (
                         <p
-                            style={
-                                hover ? { color: "#000" } : { color: "#fff" }
-                            }
+                            style={{ color: "#fff" }
+                        }
                             className="font-bold text-[24px] mt-4"
                         >
                             {match.score.fullTime.home}
@@ -109,7 +99,7 @@ const RenderMatchTile = ({
                     ) : (
                         <p
                             style={
-                                hover ? { color: "#000" } : { color: "#fff" }
+                                 { color: "#fff" }
                             }
                             className="font-bold text-[24px] mt-4"
                         >
@@ -118,7 +108,7 @@ const RenderMatchTile = ({
                     )}
                 </div>
                 <div
-                    style={hover ? { color: "#000" } : { color: "#fff" }}
+                    style={ { color: "#fff" }}
                     className="px-6"
                 >
                     VS
@@ -133,14 +123,14 @@ const RenderMatchTile = ({
                     />
                     <p
                         className="mt-3"
-                        style={hover ? { color: "#000" } : { color: "#fff" }}
+                        style={{ color: "#fff" }}
                     >
                         {match.awayTeam.tla}
                     </p>
                     {match.score.fullTime.away !== null ? (
                         <p
                             style={
-                                hover ? { color: "#000" } : { color: "#fff" }
+                            { color: "#fff" }
                             }
                             className="font-bold text-[24px] mt-4"
                         >
@@ -149,7 +139,7 @@ const RenderMatchTile = ({
                     ) : (
                         <p
                             style={
-                                hover ? { color: "#000" } : { color: "#fff" }
+                                 { color: "#fff" }
                             }
                             className="font-bold text-[24px] mt-4"
                         >
@@ -161,7 +151,7 @@ const RenderMatchTile = ({
             <div className="font-bold rounded-b-lg overflow-hidden">
                 {isWin(match)}
             </div>
-        </Link>
+        </div>
     );
 };
 

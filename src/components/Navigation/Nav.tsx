@@ -46,14 +46,6 @@ const Nav = () => {
                             <span>Clubs</span>
                         </Link>
                     </li>
-                    <li>
-                        <Link href="/" className="link flex flex-row items-center justify-center gap-2">
-                            <div className="relative w-[15px] h-[15px] rounded-full bg-red-600">
-                                <div className="absolute h-full w-full rounded-full animate-ping bg-red-600"/>
-                            </div>
-                            <span>Live</span>
-                        </Link>
-                    </li>
                 </ul>
                 <button onClick={()=>{setIsHamburgerOpen((prevState)=>!prevState)}} className={`ease-in-out duration-300 lg:hidden text-white mr-[30px] ${isHamburgerOpen && 'opacity-0'}`}>
                     <MenuIcon sx={{fontSize: 40}}/>

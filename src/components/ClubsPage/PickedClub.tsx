@@ -169,7 +169,7 @@ const PickedClub = ({id}: PickedClubProps) => {
                     {team && <PrevNextMatch id={team.id} setView={setView} matches={matches}/>}
                 </div>
             </div>}
-            {view === 'matches' && <div className="flex flex-col bg-[#122340] items-center shadow-2xl rounded-xl px-14 py-12">{matches && <MatchesView id={parseInt(id)} matches={matches}/>}</div>}
+            {view === 'matches' && <div className="flex flex-col bg-[#122340] items-center shadow-2xl rounded-xl px-8 lg:px-14 py-12">{matches && <MatchesView id={parseInt(id)} setView={setView} matches={matches}/>}</div>}
         </div>
     );
 };

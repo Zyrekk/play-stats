@@ -3,19 +3,30 @@ export const competitionsInfo={
         {
             code:"PL",
             bgColor:"#38003C",
-            cl:{
-                beg:1,
-                end:1
-            },
-            cl2:{
-                beg:2,
-                end:4
-            },
-            eu:{
-                beg:5,
-                end: 5,
-            }
-
+        },
+        {
+            code:"FL1",
+            bgColor:"#000",
+        },
+        {
+            code:"ELC",
+            bgColor:"#a69038",
+        },
+        {
+            code:"BL1",
+            bgColor:"#d10214",
+        },
+        {
+            code:"SA",
+            bgColor:"#e5002b",
+        },
+        {
+            code:"EDE",
+            bgColor:"#002f63",
+        },
+        {
+            code:"PD",
+            bgColor:"#004ad0",
         }
     ]
 }
