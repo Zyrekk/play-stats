@@ -12,7 +12,7 @@ const HomePage = () => {
             </section>
             <div className="text-white text-[32px] lg:text-[48px] lg:leading-[122.5%] bg-black py-[70px] font-bold w-full text-center">
             <h1 className="homeText px-[32px]">
-                Spotlight on Top Leagues and Players, All in One Place
+                Spotlight on Top Leagues. All in One Place
             </h1>
             </div>
             <section className="w-full">
